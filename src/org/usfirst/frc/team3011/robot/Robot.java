@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import org.usfirst.frc.team3011.robot.commands.ExampleCommand;
-import org.usfirst.frc.team3011.robot.subsystems.Arm;
+//import org.usfirst.frc.team3011.robot.subsystems.Arm;
 import org.usfirst.frc.team3011.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team3011.robot.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team3011.robot.subsystems.LiftWinch;
@@ -27,7 +27,7 @@ public class Robot extends IterativeRobot {
 
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static OI oi;
-	public static final Arm arm = new Arm();
+	//public static final Arm arm = new Arm();
 	public static final DriveTrain drive = new DriveTrain();
 	public static final LiftWinch liftWinch = new LiftWinch();
 	public static final Radio rad = new Radio();

@@ -3,9 +3,10 @@ package org.usfirst.frc.team3011.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-
+//import org.usfirst.frc.team3011.robot.commands.ArmRotateForward;
 import org.usfirst.frc.team3011.robot.commands.Driving;
-import org.usfirst.frc.team3011.robot.commands.ExampleCommand;import org.usfirst.frc.team3011.robot.subsystems.DriveTrain;
+import org.usfirst.frc.team3011.robot.commands.ExampleCommand;
+import org.usfirst.frc.team3011.robot.subsystems.DriveTrain;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -29,6 +30,7 @@ public class OI {
 	
 	public OI() {
 		buttonGreenA.whileHeld(new Driving());
+		//buttonRedB.whileActive(new ArmRotateForward());
 	}
 	
     //// CREATING BUTTONS
