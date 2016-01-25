@@ -15,17 +15,17 @@ public class OI {
 	
 	private Joystick controller = new Joystick(0);
 	
-	private Button buttonGreenA = new JoystickButton(controller, 0);
-	private Button buttonRedB = new JoystickButton(controller, 1);
-	private Button buttonBlueX = new JoystickButton(controller, 2);
-	private Button buttonYellowY = new JoystickButton(controller, 3);
-	private Button buttonTopLeft = new JoystickButton(controller, 4);
-	private Button buttonTopRight = new JoystickButton(controller, 5);
-	private Button buttonMiddleBack = new JoystickButton(controller, 6);
-	private Button buttonMiddleStart = new JoystickButton(controller, 7);
-	private Button buttonMiddleLogi = new JoystickButton(controller, 8);
-	private Button buttonLeftThumb = new JoystickButton(controller, 9);
-	private Button buttonRightThumb = new JoystickButton(controller, 10);
+	private Button buttonGreenA = new JoystickButton(controller, 1);
+	private Button buttonRedB = new JoystickButton(controller, 2);
+	private Button buttonBlueX = new JoystickButton(controller, 3);
+	private Button buttonYellowY = new JoystickButton(controller, 4);
+	private Button buttonTopLeft = new JoystickButton(controller, 5);
+	private Button buttonTopRight = new JoystickButton(controller, 6);
+	private Button buttonMiddleBack = new JoystickButton(controller, 7);
+	private Button buttonMiddleStart = new JoystickButton(controller, 8);
+	private Button buttonMiddleLogi = new JoystickButton(controller, 9);
+	private Button buttonLeftThumb = new JoystickButton(controller, 10);
+	private Button buttonRightThumb = new JoystickButton(controller, 11);
 	
 	public OI() {
 		buttonGreenA.whileHeld(new Driving());
