@@ -13,7 +13,7 @@ public class Arm extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
-	public Victor testMotor = new Victor(RobotMap.leftMotorOne);
+	public Victor testMotor = new Victor(RobotMap.leftTalonOne);
 	
     public void initDefaultCommand() {
     	

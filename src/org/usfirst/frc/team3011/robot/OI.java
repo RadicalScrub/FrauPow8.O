@@ -29,7 +29,7 @@ public class OI {
 	private Button buttonRightThumb = new JoystickButton(controller, 11);
 	
 	public OI() {
-		buttonGreenA.whileHeld(new Driving());
+		buttonGreenA.whileActive(new Driving());
 		//buttonRedB.whileActive(new ArmRotateForward());
 	}
 	
