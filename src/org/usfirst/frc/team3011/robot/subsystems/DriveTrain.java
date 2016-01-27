@@ -16,6 +16,8 @@ public class DriveTrain extends Subsystem {
 	
 	Talon leftMotor = new Talon(RobotMap.leftTalonOne);
 	Talon rightMotor = new Talon(RobotMap.rightTalonThree);
+	Victor leftVMotor = new Victor(RobotMap.leftVictorZero);
+	Victor rightVMotor = new Victor(RobotMap.rightVictorTwo);
 			
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
@@ -25,16 +27,25 @@ public class DriveTrain extends Subsystem {
     public void forward() {
     	leftMotor.set(.5);
     	rightMotor.set(.5);
+    	
+    	leftVMotor.set(.5);
+    	rightVMotor.set(.5);
     }
     
     public void backward() {
     	leftMotor.set(-.5);
     	rightMotor.set(-.5);
+    	
+    	leftVMotor.set(-.5);
+    	rightVMotor.set(-.5);
     }
     
     public void stop() {
     	leftMotor.stopMotor();
     	rightMotor.stopMotor();
+    	
+    	leftVMotor.stopMotor();
+    	rightVMotor.stopMotor();
     }
     
     public void setSpeed(double speed) {
