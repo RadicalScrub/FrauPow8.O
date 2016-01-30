@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 //import org.usfirst.frc.team3011.robot.commands.ArmRotateForward;
 import org.usfirst.frc.team3011.robot.commands.DrivingRight;
 import org.usfirst.frc.team3011.robot.commands.ExampleCommand;
+import org.usfirst.frc.team3011.robot.subsystems.Arm;
 import org.usfirst.frc.team3011.robot.subsystems.DriveTrainRight;
 
 /**
@@ -45,6 +46,7 @@ public class OI {
 	public OI() {
 		buttonGreenA.whileActive(new DrivingRight());
 		buttonGreenA2.whileActive(new DrivingRight());
+		//buttonBlueX2.cancelWhenPressed(new Arm());
 
 		//buttonRedB2.whileActive(new ArmRotateForward());
 	}
