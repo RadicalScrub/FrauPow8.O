@@ -9,15 +9,13 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 /**
  *
  */
-public class DriveTrain extends Subsystem {
+public class DriveTrainLeft extends Subsystem {
     
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 	
 	Talon leftMotor = new Talon(RobotMap.leftTalonOne);
-	Talon rightMotor = new Talon(RobotMap.rightTalonThree);
 	Victor leftVMotor = new Victor(RobotMap.leftVictorZero);
-	Victor rightVMotor = new Victor(RobotMap.rightVictorTwo);
 			
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
@@ -26,31 +24,31 @@ public class DriveTrain extends Subsystem {
     
     public void forward() {
     	leftMotor.set(.5);
-    	rightMotor.set(.5);
+    	
     	
     	leftVMotor.set(.5);
-    	rightVMotor.set(.5);
+    	
     }
     
     public void backward() {
     	leftMotor.set(-.5);
-    	rightMotor.set(-.5);
+    	
     	
     	leftVMotor.set(-.5);
-    	rightVMotor.set(-.5);
+    	
     }
     
     public void stop() {
     	leftMotor.stopMotor();
-    	rightMotor.stopMotor();
+    	
     	
     	leftVMotor.stopMotor();
-    	rightVMotor.stopMotor();
+    	
     }
     
     public void setSpeed(double speed) {
     	leftMotor.set(speed);
-    	rightMotor.set(speed);
+    	
     }
     
     public double getLeftSpeed() {
@@ -58,8 +56,6 @@ public class DriveTrain extends Subsystem {
     	
     }
     
-    public double getRightSpeed() {
-    	return rightMotor.getSpeed();
-    }
+   
 }
 

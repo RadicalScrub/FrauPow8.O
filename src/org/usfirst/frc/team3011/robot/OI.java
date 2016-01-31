@@ -4,9 +4,9 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 //import org.usfirst.frc.team3011.robot.commands.ArmRotateForward;
-import org.usfirst.frc.team3011.robot.commands.Driving;
+import org.usfirst.frc.team3011.robot.commands.DrivingRight;
 import org.usfirst.frc.team3011.robot.commands.ExampleCommand;
-import org.usfirst.frc.team3011.robot.subsystems.DriveTrain;
+import org.usfirst.frc.team3011.robot.subsystems.DriveTrainRight;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -27,10 +27,26 @@ public class OI {
 	private Button buttonMiddleLogi = new JoystickButton(controller, 9);
 	private Button buttonLeftThumb = new JoystickButton(controller, 10);
 	private Button buttonRightThumb = new JoystickButton(controller, 11);
+
+	//controller #2 the operator controller 
+	
+	private Joystick controller1 = new Joystick(1);
+	
+	private Button buttonGreenA2 = new JoystickButton(controller1, 1);
+	private Button buttonRedB2 = new JoystickButton(controller1, 2);
+	private Button buttonBlueX2 =new JoystickButton(controller1, 3);
+	private Button buttonYellowY2 = new JoystickButton(controller1, 4);
+	private Button buttonRB2 = new JoystickButton(controller1, 5);
+	private Button buttonLB2 = new JoystickButton(controller1, 6);
+	private Button buttonRT2 = new JoystickButton(controller1, 7);
+	private Button buttonLT2 = new JoystickButton(controller1, 8);
+	
 	
 	public OI() {
-		buttonGreenA.whileActive(new Driving());
-		//buttonRedB.whileActive(new ArmRotateForward());
+		buttonGreenA.whileActive(new DrivingRight());
+		buttonGreenA2.whileActive(new DrivingRight());
+
+		//buttonRedB2.whileActive(new ArmRotateForward());
 	}
 	
 	public static Joystick getController() {

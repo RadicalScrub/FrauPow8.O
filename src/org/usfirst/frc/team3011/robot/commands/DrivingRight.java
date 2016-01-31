@@ -7,9 +7,9 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class Driving extends Command {
+public class DrivingRight extends Command {
 
-    public Driving() {
+    public DrivingRight() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.drive);
@@ -22,7 +22,6 @@ public class Driving extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Robot.drive.forward();
-    	System.out.println("Ran this.");
     }
 
     // Make this return true when this Command no longer needs to run execute()
