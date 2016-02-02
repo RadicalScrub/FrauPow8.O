@@ -12,7 +12,7 @@ public class DrivingRight extends Command {
     public DrivingRight() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.drive);
+    	requires(Robot.driveRight);
     }
 
     // Called just before this Command runs the first time   
@@ -21,7 +21,7 @@ public class DrivingRight extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.drive.forward();
+    	Robot.driveRight.forward();
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -31,12 +31,12 @@ public class DrivingRight extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.drive.stop();
+    	Robot.driveRight.stop();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	Robot.drive.stop();
+    	Robot.driveRight.stop();
     }
 }
