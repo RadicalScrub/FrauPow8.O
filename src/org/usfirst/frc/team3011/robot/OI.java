@@ -4,6 +4,8 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
+import org.usfirst.frc.team3011.robot.commands.ArmRotateBack;
+import org.usfirst.frc.team3011.robot.commands.ArmRotateForward;
 import org.usfirst.frc.team3011.robot.commands.DrivingLeft;
 //import org.usfirst.frc.team3011.robot.commands.ArmRotateForward;
 import org.usfirst.frc.team3011.robot.commands.DrivingRight;
@@ -49,7 +51,8 @@ public class OI {
 		buttonGreenA.whileActive(new DrivingRight());
 		buttonGreenA2.whileActive(new DrivingLeft());
 		
-		
+		buttonLT2.whileActive(new ArmRotateBack());
+		buttonRT2.whileActive(new ArmRotateForward());
 	}
 	
 	public static Joystick getcontrollerDrive() {
