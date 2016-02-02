@@ -2,6 +2,9 @@
 package org.usfirst.frc.team3011.robot;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -34,10 +37,11 @@ public class Robot extends IterativeRobot {
 	public static final LiftWinch liftWinch = new LiftWinch();
 	public static final Radio rad = new Radio();
 	public static final Shooter fireShoot = new Shooter();
-
+	
     Command autonomousCommand;
     SendableChooser chooser;
-
+    Joystick controller;
+    
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
@@ -48,6 +52,7 @@ public class Robot extends IterativeRobot {
         chooser.addDefault("Default Auto", new ExampleCommand());
 //        chooser.addObject("My Auto", new MyAutoCommand());
         SmartDashboard.putData("Auto mode", chooser);
+        
     }
 	
 	/**
@@ -96,7 +101,7 @@ public class Robot extends IterativeRobot {
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
     }
-
+    
     public void teleopInit() {
 		// This makes sure that the autonomous stops running when
         // teleop starts running. If you want the autonomous to 

@@ -17,7 +17,7 @@ import org.usfirst.frc.team3011.robot.subsystems.DriveTrainRight;
  */
 public class OI {
 	
-	private Joystick controller = new Joystick(0);
+	private static Joystick controller = new Joystick(0);
 	
 	private Button buttonGreenA = new JoystickButton(controller, 1);
 	private Button buttonRedB = new JoystickButton(controller, 2);
@@ -51,6 +51,10 @@ public class OI {
 		//buttonBlueX2.cancelWhenPressed(new Arm());
 
 		//buttonRedB2.whileActive(new ArmRotateForward());
+	}
+	
+	public static Joystick getController() {
+		return controller;
 	}
 	
     //// CREATING BUTTONS
