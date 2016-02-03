@@ -1,15 +1,18 @@
 package org.usfirst.frc.team3011.robot.commands;
 
+import org.usfirst.frc.team3011.robot.Robot;
+
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class LiftWinch extends Command {
+public class ExtendLift extends Command {
 
-    public LiftWinch() {
+    public ExtendLift() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+    	requires(Robot.liftWinch);
     }
 
     // Called just before this Command runs the first time
@@ -18,6 +21,8 @@ public class LiftWinch extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	Robot.liftWinch.forward();
+    	
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -27,10 +32,12 @@ public class LiftWinch extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
+    	Robot.liftWinch.stop();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	Robot.liftWinch.stop();
     }
 }

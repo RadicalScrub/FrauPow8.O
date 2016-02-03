@@ -2,6 +2,7 @@ package org.usfirst.frc.team3011.robot;
 
 import org.usfirst.frc.team3011.robot.commands.ArmRotateBack;
 import org.usfirst.frc.team3011.robot.commands.ArmRotateForward;
+import org.usfirst.frc.team3011.robot.commands.ExtendLift;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -60,7 +61,7 @@ public class OI {
 		
 		//A retract lift
 		//B winch
-		//Y extend lift
+		buttonYellowY.whileHeld(new ExtendLift()); //Y extend lift
 		//LT Lock forward/directon
 		//RT whileheld boost
 		
@@ -86,8 +87,8 @@ public class OI {
 		buttonLT2 = new JoystickButton(controllerOp, 8);
 		
 
-		//buttonLT2.whileActive(new ArmRotateBack());
-		buttonGreenA2.whileHeld(new ArmRotateForward());
+		//buttonLT2.whileActive(new ArmRotateBack());   change from trigger to button? figure out trigger?
+		//buttonRT2.whileHeld(new ArmRotateForward());  change from trigger to button? figure out trigger?
 		//buttonGreenA2.whenReleased(new shoot) includes speeding up shooter and one full arm rotation
 		//buttonRedB2.whileActive(new invertShooter) spin shooter inward 
 		//buttonBlueX2.whenReleased(new arm full forward)

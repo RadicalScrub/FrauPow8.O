@@ -10,7 +10,7 @@ import org.usfirst.frc.team3011.robot.commands.ExampleCommand;
 import org.usfirst.frc.team3011.robot.subsystems.Arm;
 import org.usfirst.frc.team3011.robot.subsystems.BothDriveTrain;
 import org.usfirst.frc.team3011.robot.subsystems.ExampleSubsystem;
-import org.usfirst.frc.team3011.robot.subsystems.LiftWinch;
+import org.usfirst.frc.team3011.robot.subsystems.ScissorLift;
 import org.usfirst.frc.team3011.robot.subsystems.Radio;
 import org.usfirst.frc.team3011.robot.subsystems.Shooter;
 
@@ -31,7 +31,7 @@ public class Robot extends IterativeRobot {
 	public static Arm arm; 
 	public static BothDriveTrain driveTrain;
 	
-	public static LiftWinch liftWinch;
+	public static ScissorLift liftWinch;
 	public static Radio rad;
 	public static Shooter fireShoot;
 	
@@ -51,7 +51,7 @@ public class Robot extends IterativeRobot {
         
         arm = new Arm();
         driveTrain = new BothDriveTrain();
-        liftWinch = new LiftWinch();
+        liftWinch = new ScissorLift();
         rad = new Radio();
         fireShoot = new Shooter();
         
