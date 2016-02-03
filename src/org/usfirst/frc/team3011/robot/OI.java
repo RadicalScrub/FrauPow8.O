@@ -1,6 +1,11 @@
 package org.usfirst.frc.team3011.robot;
 
+<<<<<<< HEAD
 import org.usfirst.frc.team3011.robot.commands.DriveForward;
+=======
+import org.usfirst.frc.team3011.robot.commands.ArmRotateBack;
+import org.usfirst.frc.team3011.robot.commands.ArmRotateForward;
+>>>>>>> d9841e426b750557ca21298dcc99034127972cb1
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -70,6 +75,10 @@ public class OI {
 		
 		//Joystick drive
 		
+<<<<<<< HEAD
+=======
+		
+>>>>>>> d9841e426b750557ca21298dcc99034127972cb1
 		//controllerDrive #2 the operator controllerDrive 
 
 		controllerOp = new Joystick(1);
@@ -85,12 +94,20 @@ public class OI {
 		
 
 		//buttonLT2.whileActive(new ArmRotateBack());
+<<<<<<< HEAD
 		//buttonRT2.whileActive(new ArmRotateForward());
 		//buttonGreen.whenReleased(new shoot) includes speeding up shooter and one full arm rotation
 		
 		//button A shoot
 		//B inverted spin shooter, the shooter spins in the oposite direction
 		//X Arm full forward rotation
+=======
+		buttonGreenA2.whileHeld(new ArmRotateForward());
+		//buttonGreenA2.whenReleased(new shoot) includes speeding up shooter and one full arm rotation
+		//buttonRedB2.whileActive(new invertShooter) spin shooter inward 
+		//buttonBlueX2.whenReleased(new arm full forward)
+		//buttonYellowY2.whenReleased(new arm full backwards)
+>>>>>>> d9841e426b750557ca21298dcc99034127972cb1
 		//Y Arm Full backwards rotation
 		//LT Arm up
 		//RT Arm down
@@ -100,6 +117,16 @@ public class OI {
 		
 		buttonRedB.whileHeld(new DriveForward());
 	}
+	
+	
+	
+	//talons on wheels and limit switches
+	//	lifts and drive train
+	//victors on everything else
+		//shooter
+	
+	
+	
 	
 	
     //// CREATING BUTTONS
