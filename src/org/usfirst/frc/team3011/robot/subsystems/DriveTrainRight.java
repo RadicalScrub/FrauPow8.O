@@ -13,7 +13,7 @@ public class DriveTrainRight extends Subsystem {
     
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-	
+	 
 	Talon rightMotor = new Talon(RobotMap.rightTalonThree);
 	Victor rightVMotor = new Victor(RobotMap.rightVictorTwo);
 			
