@@ -54,6 +54,32 @@ public class OI {
 		buttonLeftThumb = new JoystickButton(controllerDrive, 10);
 		buttonRightThumb = new JoystickButton(controllerDrive, 11);
 
+		
+		//A retract lift
+		//B winch
+		//Y extend lift
+		//LT Lock forward/directon
+		//RT whileheld boost
+		
+		//Dpad
+		//left 90 degrees left spin
+		//right 90 degrees right spin
+		//down 108 degree spin
+		
+		//Joystick drive
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		//controllerDrive #2 the operator controllerDrive 
 
 		controllerOp = new Joystick(1);
@@ -70,6 +96,16 @@ public class OI {
 
 		//buttonLT2.whileActive(new ArmRotateBack());
 		//buttonRT2.whileActive(new ArmRotateForward());
+		//buttonGreen.whenReleased(new shoot) includes speeding up shooter and one full arm rotation
+		//button A shoot
+		//B inverted spin shooter, the shooter spins in the oposite direction
+		//X Arm full forward rotation
+		//Y Arm Full backwards rotation
+		//LT Arm up
+		//RT Arm down
+		//Dpad up raise shooter 
+		//dpad down lower shooter
+		
 	}
 	
 	
