@@ -20,11 +20,13 @@ public class RobotMap {
     // public static int rangefinderPort = 1;
     // public static int rangefinderModule = 1;
 	
+	//DO NOT REUSE PORTS. DON'T WASTE 78162863798123 HOURS DEBUGGING. IF YOU DO, UR DUMB.
+	
 	public static int leftVictorZero = 0;
 	public static int leftTalonOne = 1;
 	
 	public static int rightVictorTwo = 2;
 	public static int rightTalonThree = 3;
 	
-	public static int armMotor = leftTalonOne;
+	public static int armTalonMotor = 4; //Make sure to add motor or change one of the talon's PWM channel.
 }

@@ -19,45 +19,71 @@ import org.usfirst.frc.team3011.robot.subsystems.DriveTrainRight;
  */
 public class OI {
 	
-	private static Joystick controllerDrive = new Joystick(0);
+	public static Joystick controllerDrive;
 	
-	private Button buttonGreenA = new JoystickButton(controllerDrive, 1);
-	private Button buttonRedB = new JoystickButton(controllerDrive, 2);
-	private Button buttonBlueX = new JoystickButton(controllerDrive, 3);
-	private Button buttonYellowY = new JoystickButton(controllerDrive, 4);
-	private Button buttonTopLeft = new JoystickButton(controllerDrive, 5);
-	private Button buttonTopRight = new JoystickButton(controllerDrive, 6);
-	private Button buttonMiddleBack = new JoystickButton(controllerDrive, 7);
-	private Button buttonMiddleStart = new JoystickButton(controllerDrive, 8);
-	private Button buttonMiddleLogi = new JoystickButton(controllerDrive, 9);
-	private Button buttonLeftThumb = new JoystickButton(controllerDrive, 10);
-	private Button buttonRightThumb = new JoystickButton(controllerDrive, 11);
+	private Button buttonGreenA;
+	private Button buttonRedB;
+	private Button buttonBlueX;
+	private Button buttonYellowY;
+	private Button buttonTopLeft;
+	private Button buttonTopRight;
+	private Button buttonMiddleBack;
+	private Button buttonMiddleStart;
+	private Button buttonMiddleLogi;
+	private Button buttonLeftThumb;
+	private Button buttonRightThumb;
 
 	//controllerDrive #2 the operator controllerDrive 
 	
-	private Joystick controllerOp = new Joystick(1);
+	public static Joystick controllerOp;
 	
-	private Button buttonGreenA2 = new JoystickButton(controllerOp, 1);
-	private Button buttonRedB2 = new JoystickButton(controllerOp, 2);
-	private Button buttonBlueX2 =new JoystickButton(controllerOp, 3);
-	private Button buttonYellowY2 = new JoystickButton(controllerOp, 4);
-	private Button buttonRB2 = new JoystickButton(controllerOp, 5);
-	private Button buttonLB2 = new JoystickButton(controllerOp, 6);
-	private Button buttonRT2 = new JoystickButton(controllerOp, 7);
-	private Button buttonLT2 = new JoystickButton(controllerOp, 8);
+	private Button buttonGreenA2;
+	private Button buttonRedB2;
+	private Button buttonBlueX2;
+	private Button buttonYellowY2;
+	private Button buttonRB2;
+	private Button buttonLB2;
+	private Button buttonRT2;
+	private Button buttonLT2;
 	
 	
 	public OI() {
+		
+		controllerDrive = new Joystick(0);
+
+		buttonGreenA = new JoystickButton(controllerDrive, 1);
+		buttonRedB = new JoystickButton(controllerDrive, 2);
+		buttonBlueX = new JoystickButton(controllerDrive, 3);
+		buttonYellowY = new JoystickButton(controllerDrive, 4);
+		buttonTopLeft = new JoystickButton(controllerDrive, 5);
+		buttonTopRight = new JoystickButton(controllerDrive, 6);
+		buttonMiddleBack = new JoystickButton(controllerDrive, 7);
+		buttonMiddleStart = new JoystickButton(controllerDrive, 8);
+		buttonMiddleLogi = new JoystickButton(controllerDrive, 9);
+		buttonLeftThumb = new JoystickButton(controllerDrive, 10);
+		buttonRightThumb = new JoystickButton(controllerDrive, 11);
+
+		//controllerDrive #2 the operator controllerDrive 
+
+		controllerOp = new Joystick(1);
+
+		buttonGreenA2 = new JoystickButton(controllerOp, 1);
+		buttonRedB2 = new JoystickButton(controllerOp, 2);
+		buttonBlueX2 =new JoystickButton(controllerOp, 3);
+		buttonYellowY2 = new JoystickButton(controllerOp, 4);
+		buttonRB2 = new JoystickButton(controllerOp, 5);
+		buttonLB2 = new JoystickButton(controllerOp, 6);
+		buttonRT2 = new JoystickButton(controllerOp, 7);
+		buttonLT2 = new JoystickButton(controllerOp, 8);
+
+		
 		buttonGreenA.whileActive(new DrivingRight());
 		buttonGreenA2.whileActive(new DrivingLeft());
-		
+
 		buttonLT2.whileActive(new ArmRotateBack());
 		buttonRT2.whileActive(new ArmRotateForward());
 	}
 	
-	public static Joystick getcontrollerDrive() {
-		return controllerDrive;
-	}
 	
     //// CREATING BUTTONS
     // One type of button is a joystick button which is any button on a joystick.
