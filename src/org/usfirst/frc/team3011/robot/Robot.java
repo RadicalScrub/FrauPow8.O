@@ -31,7 +31,7 @@ public class Robot extends IterativeRobot {
 	public static Arm arm; 
 	public static BothDriveTrain driveTrain;
 	
-	public static ScissorLift liftWinch;
+	public static ScissorLift lift;
 	public static Radio rad;
 	public static Shooter fireShoot;
 	
@@ -51,7 +51,7 @@ public class Robot extends IterativeRobot {
         
         arm = new Arm();
         driveTrain = new BothDriveTrain();
-        liftWinch = new ScissorLift();
+        lift = new ScissorLift();
         rad = new Radio();
         fireShoot = new Shooter();
         

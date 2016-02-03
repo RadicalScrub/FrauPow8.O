@@ -3,6 +3,7 @@ package org.usfirst.frc.team3011.robot;
 import org.usfirst.frc.team3011.robot.commands.ArmRotateBack;
 import org.usfirst.frc.team3011.robot.commands.ArmRotateForward;
 import org.usfirst.frc.team3011.robot.commands.ExtendLift;
+import org.usfirst.frc.team3011.robot.commands.RetractLift;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -59,7 +60,7 @@ public class OI {
 		buttonRightThumb = new JoystickButton(controllerDrive, 11);
 
 		
-		//A retract lift
+		buttonGreenA.whileHeld(new RetractLift());
 		//B winch
 		buttonYellowY.whileHeld(new ExtendLift()); //Y extend lift
 		//LT Lock forward/directon
