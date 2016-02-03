@@ -1,6 +1,7 @@
 package org.usfirst.frc.team3011.robot.subsystems;
 
 import org.usfirst.frc.team3011.robot.RobotMap;
+import org.usfirst.frc.team3011.robot.commands.ArcadeDriveTrain;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
@@ -20,26 +21,24 @@ public class BothDriveTrain extends Subsystem {
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
+    	
+    	setDefaultCommand(new ArcadeDriveTrain());
     }
     
     public void forward() {
     	leftMotor.set(.5);
     	
     	rightMotor.set(.5);
-    	
     }
     
     public void backward() {
     	leftMotor.set(-.5);
     	
-    	
     	rightMotor.set(-.5);
-    	
     }
     
     public void stop() {
     	leftMotor.stopMotor();
-    	
     	
     	rightMotor.stopMotor();
     	
