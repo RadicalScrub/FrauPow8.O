@@ -2,6 +2,7 @@ package org.usfirst.frc.team3011.robot.subsystems;
 
 import org.usfirst.frc.team3011.robot.RobotMap;
 
+import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -11,9 +12,12 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class BothDriveTrain extends Subsystem {
     
+	RobotDrive driver;
+	
 	Talon leftMotor = new Talon(RobotMap.leftTalonOne);
 	Victor leftVMotor = new Victor(RobotMap.leftVictorZero);
-			
+	
+	
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());

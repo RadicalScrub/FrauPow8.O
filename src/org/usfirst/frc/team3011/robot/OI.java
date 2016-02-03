@@ -6,12 +6,9 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 import org.usfirst.frc.team3011.robot.commands.ArmRotateBack;
 import org.usfirst.frc.team3011.robot.commands.ArmRotateForward;
-import org.usfirst.frc.team3011.robot.commands.DrivingLeft;
 //import org.usfirst.frc.team3011.robot.commands.ArmRotateForward;
-import org.usfirst.frc.team3011.robot.commands.DrivingRight;
 import org.usfirst.frc.team3011.robot.commands.ExampleCommand;
 import org.usfirst.frc.team3011.robot.subsystems.Arm;
-import org.usfirst.frc.team3011.robot.subsystems.DriveTrainRight;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -77,11 +74,10 @@ public class OI {
 		buttonLT2 = new JoystickButton(controllerOp, 8);
 
 		
-		buttonGreenA.whileActive(new DrivingRight());
-		buttonGreenA2.whileActive(new DrivingLeft());
+		
 
-		buttonLT2.whileActive(new ArmRotateBack());
-		buttonRT2.whileActive(new ArmRotateForward());
+		//buttonLT2.whileActive(new ArmRotateBack());
+		//buttonRT2.whileActive(new ArmRotateForward());
 	}
 	
 	

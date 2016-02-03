@@ -27,6 +27,4 @@ public class RobotMap {
 	
 	public static int rightVictorTwo = 2;
 	public static int rightTalonThree = 3;
-	
-	public static int armTalonMotor = 4; //Make sure to add motor or change one of the talon's PWM channel.
 }

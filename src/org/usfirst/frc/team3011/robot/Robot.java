@@ -10,9 +10,8 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import org.usfirst.frc.team3011.robot.commands.ExampleCommand;
 import org.usfirst.frc.team3011.robot.subsystems.Arm;
-import org.usfirst.frc.team3011.robot.subsystems.DriveTrainLeft;
-//import org.usfirst.frc.team3011.robot.subsystems.Arm;
-import org.usfirst.frc.team3011.robot.subsystems.DriveTrainRight;
+import org.usfirst.frc.team3011.robot.subsystems.BothDriveTrain;
+import org.usfirst.frc.team3011.robot.subsystems.Arm;
 import org.usfirst.frc.team3011.robot.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team3011.robot.subsystems.LiftWinch;
 import org.usfirst.frc.team3011.robot.subsystems.Radio;
@@ -33,8 +32,8 @@ public class Robot extends IterativeRobot {
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static OI oi;
 	public static final Arm arm = new Arm();
-	public static final DriveTrainRight driveRight = new DriveTrainRight();
-	public static final DriveTrainLeft driveLeft = new DriveTrainLeft();
+	public static BothDriveTrain driveTrain;
+	
 	public static final LiftWinch liftWinch = new LiftWinch();
 	public static final Radio rad = new Radio();
 	public static final Shooter fireShoot = new Shooter();
