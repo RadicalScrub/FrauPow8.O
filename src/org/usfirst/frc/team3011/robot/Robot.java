@@ -3,15 +3,12 @@ package org.usfirst.frc.team3011.robot;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.RobotDrive;
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import org.usfirst.frc.team3011.robot.commands.ExampleCommand;
 import org.usfirst.frc.team3011.robot.subsystems.Arm;
 import org.usfirst.frc.team3011.robot.subsystems.BothDriveTrain;
-import org.usfirst.frc.team3011.robot.subsystems.Arm;
 import org.usfirst.frc.team3011.robot.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team3011.robot.subsystems.LiftWinch;
 import org.usfirst.frc.team3011.robot.subsystems.Radio;
@@ -31,12 +28,12 @@ public class Robot extends IterativeRobot {
 
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static OI oi;
-	public static final Arm arm = new Arm();
+	public static Arm arm; 
 	public static BothDriveTrain driveTrain;
 	
-	public static final LiftWinch liftWinch = new LiftWinch();
-	public static final Radio rad = new Radio();
-	public static final Shooter fireShoot = new Shooter();
+	public static LiftWinch liftWinch;
+	public static Radio rad;
+	public static Shooter fireShoot;
 	
     Command autonomousCommand;
     SendableChooser chooser;
@@ -53,6 +50,11 @@ public class Robot extends IterativeRobot {
 //        chooser.addObject("My Auto", new MyAutoCommand());
         SmartDashboard.putData("Auto mode", chooser);
         
+        arm = new Arm();
+        driveTrain = new BothDriveTrain();
+        liftWinch = new LiftWinch();
+        rad = new Radio();
+        fireShoot = new Shooter();
     }
 	
 	/**

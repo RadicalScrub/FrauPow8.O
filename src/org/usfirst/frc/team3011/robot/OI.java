@@ -4,12 +4,6 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
-import org.usfirst.frc.team3011.robot.commands.ArmRotateBack;
-import org.usfirst.frc.team3011.robot.commands.ArmRotateForward;
-//import org.usfirst.frc.team3011.robot.commands.ArmRotateForward;
-import org.usfirst.frc.team3011.robot.commands.ExampleCommand;
-import org.usfirst.frc.team3011.robot.subsystems.Arm;
-
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
@@ -72,8 +66,6 @@ public class OI {
 		buttonLB2 = new JoystickButton(controllerOp, 6);
 		buttonRT2 = new JoystickButton(controllerOp, 7);
 		buttonLT2 = new JoystickButton(controllerOp, 8);
-
-		
 		
 
 		//buttonLT2.whileActive(new ArmRotateBack());
