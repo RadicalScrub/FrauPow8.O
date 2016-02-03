@@ -44,7 +44,6 @@ public class Robot extends IterativeRobot {
      * used for any initialization code.
      */
     public void robotInit() {
-		oi = new OI();
         chooser = new SendableChooser();
         chooser.addDefault("Default Auto", new ExampleCommand());
 //        chooser.addObject("My Auto", new MyAutoCommand());
@@ -58,6 +57,9 @@ public class Robot extends IterativeRobot {
         
         SmartDashboard.putData(driveTrain);
         SmartDashboard.putData(arm);
+        
+        
+        oi = new OI();
     }
 	
 	/**
