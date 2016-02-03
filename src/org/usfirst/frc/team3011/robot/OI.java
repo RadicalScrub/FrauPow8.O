@@ -109,7 +109,6 @@ public class OI {
 		//Dpad up raise shooter 
 		//dpad down lower shooter
 		
-		
 		buttonRedB.whileHeld(new DriveForward());
 	}
 	
