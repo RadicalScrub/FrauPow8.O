@@ -89,10 +89,8 @@ public class OI {
 		buttonLT2 = new JoystickButton(controllerOp, 8);
 		
 
-<<<<<<< HEAD
 		//buttonLT2.whileActive(new ArmRotateBack());   change from trigger to button? figure out trigger?
 		//buttonRT2.whileHeld(new ArmRotateForward());  change from trigger to button? figure out trigger?
-=======
 		//buttonLT2.whileActive(new ArmRotateBack());
 		//buttonRT2.whileActive(new ArmRotateForward());
 		//buttonGreen.whenReleased(new shoot) includes speeding up shooter and one full arm rotation
@@ -101,7 +99,6 @@ public class OI {
 		//B inverted spin shooter, the shooter spins in the oposite direction
 		//X Arm full forward rotation
 		buttonGreenA2.whileHeld(new ArmRotateForward());
->>>>>>> 6b11bfcafabb89b32dd55a1d599883b0cd1994d6
 		//buttonGreenA2.whenReleased(new shoot) includes speeding up shooter and one full arm rotation
 		//buttonRedB2.whileActive(new invertShooter) spin shooter inward 
 		//buttonBlueX2.whenReleased(new arm full forward)

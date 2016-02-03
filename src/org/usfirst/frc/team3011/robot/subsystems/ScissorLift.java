@@ -21,11 +21,11 @@ public class ScissorLift extends Subsystem {
     }
     
     public void forward(){
-    	liftMotor.set(.5);
+    	liftMotor.set(.8);
     }
     
     public void backward() {
-    	liftMotor.set(-.5);
+    	liftMotor.set(-.8);
     }
     
     /**
