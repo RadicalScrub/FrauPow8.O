@@ -54,7 +54,7 @@ public class BothDriveTrain extends Subsystem {
     	//Joystick leftJoy = joy;
     	//Joystick rightJoy = joy;
     	
-    	driver.tankDrive(joy.getX(), joy.getY());
+    	driver.tankDrive(joy.getRawAxis(2), joy.getRawAxis(4));
     }
 }
 
