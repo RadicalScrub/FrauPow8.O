@@ -22,7 +22,7 @@ public class BothDriveTrain extends Subsystem {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     	
-    	//setDefaultCommand(new ArcadeDriveTrain());
+    	setDefaultCommand(new ArcadeDriveTrain());
     }
     
     public void forward() {
