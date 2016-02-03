@@ -5,6 +5,7 @@ import org.usfirst.frc.team3011.robot.commands.DriveForward;
 import org.usfirst.frc.team3011.robot.commands.ArmRotateBack;
 import org.usfirst.frc.team3011.robot.commands.ArmRotateForward;
 import org.usfirst.frc.team3011.robot.commands.ExtendLift;
+import org.usfirst.frc.team3011.robot.commands.InverseSpin;
 import org.usfirst.frc.team3011.robot.commands.RetractLift;
 import org.usfirst.frc.team3011.robot.commands.Shoot;
 
@@ -104,7 +105,7 @@ public class OI {
 
 		buttonGreenA2.whileHeld(new Shoot());// includes speeding up shooter and one full arm rotation
 		
-		//buttonRedB2.whileActive(new invertShooter) spin shooter inward 
+		buttonRedB2.whileActive(new InverseSpin());// spin shooter inward 
 		//buttonBlueX2.whenReleased(new arm full forward)
 		//buttonYellowY2.whenReleased(new arm full backwards)
 		//Y Arm Full backwards rotation

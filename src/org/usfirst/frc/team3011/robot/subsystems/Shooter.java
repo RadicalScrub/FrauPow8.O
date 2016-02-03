@@ -23,15 +23,15 @@ public class Shooter extends Subsystem {
     }
     
     public void shoot(){
-    	shooterMotorLeft.set(.1);
-    	shooterMotorRight.set(-.1);
+    	shooterMotorLeft.set(.9);
+    	shooterMotorRight.set(-.9);
     	
     	
     }
     
     public void inverseSpin() {
-    	shooterMotorLeft.set(-.1);
-    	shooterMotorRight.set(.1);
+    	shooterMotorLeft.set(-.5);
+    	shooterMotorRight.set(.5);
     }
     
     /**
