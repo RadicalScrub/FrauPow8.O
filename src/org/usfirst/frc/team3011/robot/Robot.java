@@ -55,6 +55,9 @@ public class Robot extends IterativeRobot {
         liftWinch = new LiftWinch();
         rad = new Radio();
         fireShoot = new Shooter();
+        
+        SmartDashboard.putData(driveTrain);
+        SmartDashboard.putData(arm);
     }
 	
 	/**
@@ -110,6 +113,8 @@ public class Robot extends IterativeRobot {
         // continue until interrupted by another command, remove
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
+        
+        
     }
 
     /**
