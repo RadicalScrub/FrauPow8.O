@@ -32,7 +32,7 @@ public class Robot extends IterativeRobot {
 	
 	public static ScissorLift lift;
 	public static Radio rad;
-	public static Shooter fireShoot;
+	public static Shooter shoot;
 	
     Command autonomousCommand;
     SendableChooser chooser;
@@ -51,7 +51,7 @@ public class Robot extends IterativeRobot {
         driveTrain = new BothDriveTrain();
         lift = new ScissorLift();
         rad = new Radio();
-        fireShoot = new Shooter();
+        shoot = new Shooter();
         
         SmartDashboard.putData(driveTrain);
         SmartDashboard.putData(arm);

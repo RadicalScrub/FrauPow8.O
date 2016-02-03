@@ -25,4 +25,10 @@ public class RobotMap {
 	
 	public static int rightVictorTwo = 2;  //arm 
 	public static int rightTalonThree = 3; // drive
+	
+	public static int rightVictorFour = 4; //shooter Left side
+	public static int leftVictorFive = 5; //shooter Right side
+	
+
+	
 }
