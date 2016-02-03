@@ -1,5 +1,7 @@
 package org.usfirst.frc.team3011.robot;
 
+import org.usfirst.frc.team3011.robot.commands.DriveForward;
+
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -68,18 +70,6 @@ public class OI {
 		
 		//Joystick drive
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		//controllerDrive #2 the operator controllerDrive 
 
 		controllerOp = new Joystick(1);
@@ -97,6 +87,7 @@ public class OI {
 		//buttonLT2.whileActive(new ArmRotateBack());
 		//buttonRT2.whileActive(new ArmRotateForward());
 		//buttonGreen.whenReleased(new shoot) includes speeding up shooter and one full arm rotation
+		
 		//button A shoot
 		//B inverted spin shooter, the shooter spins in the oposite direction
 		//X Arm full forward rotation
@@ -106,6 +97,8 @@ public class OI {
 		//Dpad up raise shooter 
 		//dpad down lower shooter
 		
+		
+		buttonRedB.whileHeld(new DriveForward());
 	}
 	
 	
