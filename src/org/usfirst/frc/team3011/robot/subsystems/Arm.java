@@ -8,6 +8,8 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  *
  */
 public class Arm extends Subsystem {
+	
+	
     
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
@@ -22,7 +24,8 @@ public class Arm extends Subsystem {
      * Motor speed is set to .5
      */
     public void forward() {
-    	armMotor.set(.5);
+    	armMotor.set(1);
+    	
     }
     
     /**
@@ -31,6 +34,19 @@ public class Arm extends Subsystem {
     public void backward() {
     	armMotor.set(-.5);
     }
+    
+   public void kick(){
+	   armMotor.set(.5);
+	  
+	   /**
+	   try {
+			Thread.sleep(700);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		*/
+   }
     
     /**
      * Motor speed is set to 0.

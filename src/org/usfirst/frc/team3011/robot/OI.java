@@ -4,10 +4,11 @@ package org.usfirst.frc.team3011.robot;
 import org.usfirst.frc.team3011.robot.commands.DriveForward;
 import org.usfirst.frc.team3011.robot.commands.ArmRotateBack;
 import org.usfirst.frc.team3011.robot.commands.ArmRotateForward;
-import org.usfirst.frc.team3011.robot.commands.ExtendLift;
-import org.usfirst.frc.team3011.robot.commands.InverseSpin;
-import org.usfirst.frc.team3011.robot.commands.RetractLift;
-import org.usfirst.frc.team3011.robot.commands.Shoot;
+import org.usfirst.frc.team3011.robot.commands.LiftExtend;
+import org.usfirst.frc.team3011.robot.commands.ShooterInverseSpin;
+import org.usfirst.frc.team3011.robot.commands.LiftRetract;
+import org.usfirst.frc.team3011.robot.commands.ShooterShoot;
+import org.usfirst.frc.team3011.robot.commands.ShooterSpin;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -64,9 +65,9 @@ public class OI {
 		buttonRightThumb = new JoystickButton(controllerDrive, 11);
 
 		
-		buttonGreenA.whileHeld(new RetractLift());
+		buttonGreenA.whileHeld(new LiftRetract());
 		//B winch up
-		buttonYellowY.whileHeld(new ExtendLift()); //Y extend lift
+		buttonYellowY.whileHeld(new LiftExtend()); //Y extend lift
 		//LT Lock forward/directon
 		//RT whileheld boost
 		
@@ -93,34 +94,21 @@ public class OI {
 
 		//buttonLT2.whileActive(new ArmRotateBack());   change from trigger to button? figure out trigger?
 		//buttonRT2.whileHeld(new ArmRotateForward());  change from trigger to button? figure out trigger?
-		//buttonLT2.whileActive(new ArmRotateBack());
-		//buttonRT2.whileActive(new ArmRotateForward());
-
-		//buttonLT2.whileActive(new ArmRotateBack());   change from trigger to button? figure out trigger?
-		//buttonRT2.whileHeld(new ArmRotateForward());  change from trigger to button? figure out trigger?
-
 		
-		//buttonGreen.whenReleased(new shoot) includes speeding up shooter and one full arm rotation
+				
 		
-		//button A shoot
-		//B inverted spin shooter, the shooter spins in the oposite direction
+		
 		//X Arm full forward rotation
-		buttonGreenA2.whileHeld(new ArmRotateForward());
-		//buttonGreenA2.whenReleased(new shoot) includes speeding up shooter and one full arm rotation
-		//buttonGreenA2.whileHeld(new ArmRotateForward());
-
-		buttonGreenA2.whileHeld(new Shoot());// includes speeding up shooter and one full arm rotation
-		
-		buttonRedB2.whileActive(new InverseSpin());// spin shooter inward 
+		buttonGreenA2.whenPressed(new ShooterShoot());// includes speeding up shooter and one full arm rotation
+		buttonRedB2.whileActive(new ShooterInverseSpin());// spin shooter inward 
 		//buttonBlueX2.whenReleased(new arm full forward)
 		//buttonYellowY2.whenReleased(new arm full backwards)
 		//Y Arm Full backwards rotation
 		//LT Arm up
 		//RT Arm down
-		//Dpad up raise shooter 
-		//dpad down lower shooter
+		//Dpad up raise shooter     probably not on robot
+		//dpad down lower shooter   probably not on robot
 		
-		buttonRedB.whileHeld(new DriveForward());
 	}
 	
 	

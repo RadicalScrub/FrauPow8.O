@@ -1,19 +1,23 @@
 package org.usfirst.frc.team3011.robot.commands;
 
 import org.usfirst.frc.team3011.robot.Robot;
+import org.usfirst.frc.team3011.robot.subsystems.Shooter;
 
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Command;
 
-/**
- *
- */
-public class Shoot extends Command {
 
+public class ShooterSpin extends Command {
 
-    public Shoot() {
+	//protected boolean isFinished1(){
+	//	return Shooter.get();
+	//}
+	
+    public ShooterSpin() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.shoot);
+    	
     }
 
     // Called just before this Command runs the first time
@@ -23,7 +27,6 @@ public class Shoot extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Robot.shoot.shoot();
-    	Robot.arm.forward();
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -34,6 +37,7 @@ public class Shoot extends Command {
     // Called once after isFinished returns true
     protected void end() {
     	Robot.shoot.stop();
+    	
     }
 
     // Called when another command which requires one or more of the same

@@ -7,10 +7,10 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class InverseSpin extends Command {
+public class ShooterInverseSpin extends Command {
 
 
-    public InverseSpin() {
+    public ShooterInverseSpin() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.shoot);

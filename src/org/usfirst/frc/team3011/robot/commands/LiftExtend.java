@@ -7,9 +7,9 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class RetractLift extends Command {
+public class LiftExtend extends Command {
 
-    public RetractLift() {
+    public LiftExtend() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.lift);
@@ -21,7 +21,7 @@ public class RetractLift extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.lift.backward();
+    	Robot.lift.forward();
     	
     }
 
@@ -41,4 +41,3 @@ public class RetractLift extends Command {
     	Robot.lift.stop();
     }
 }
-

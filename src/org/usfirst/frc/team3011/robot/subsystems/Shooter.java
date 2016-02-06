@@ -2,6 +2,7 @@ package org.usfirst.frc.team3011.robot.subsystems;
 
 import org.usfirst.frc.team3011.robot.RobotMap;
 
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
@@ -25,7 +26,14 @@ public class Shooter extends Subsystem {
     public void shoot(){
     	shooterMotorLeft.set(.9);
     	shooterMotorRight.set(-.9);
-    	
+    	/**
+    	try {
+			Thread.sleep(1);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	*/
     	
     }
     
@@ -41,5 +49,11 @@ public class Shooter extends Subsystem {
     	shooterMotorLeft.set(0);
     	shooterMotorRight.set(0);
     }
+    
+    //static DigitalInput limitSwitch = newDigitalInput(1);
+	//public static Boolean get(){
+	//	return limitSwitch.get();
+	
+
 }
 

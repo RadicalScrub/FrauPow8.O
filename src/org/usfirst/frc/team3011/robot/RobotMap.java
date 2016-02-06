@@ -18,7 +18,7 @@ public class RobotMap {
     // public static int rangefinderPort = 1;
     // public static int rangefinderModule = 1;
 	
-	//DO NOT REUSE PORTS. DON'T WASTE 78162863798123 HOURS DEBUGGING. IF YOU DO, UR DUMB.
+	//DO NOT REUSE PORTS. DON'T WASTE 78,162,863,798,123 HOURS DEBUGGING. IF YOU DO, UR DUMB.
 	
 	public static int leftVictorZero = 0; //shooter
 	public static int leftTalonOne = 1; //drive
