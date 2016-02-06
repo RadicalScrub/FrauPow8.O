@@ -10,14 +10,8 @@ import org.usfirst.frc.team3011.robot.commands.ShooterSpin;
 import org.usfirst.frc.team3011.robot.subsystems.Arm;
 import org.usfirst.frc.team3011.robot.subsystems.BothDriveTrain;
 import org.usfirst.frc.team3011.robot.subsystems.ExampleSubsystem;
-<<<<<<< HEAD
 import org.usfirst.frc.team3011.robot.subsystems.Lift;
-import org.usfirst.frc.team3011.robot.subsystems.Radio;
-=======
-import org.usfirst.frc.team3011.robot.subsystems.ScissorLift;
->>>>>>> 70af35a14f9573475d681fee125c15ecdebe3099
 import org.usfirst.frc.team3011.robot.subsystems.Shooter;
-
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -34,14 +28,8 @@ public class Robot extends IterativeRobot {
 	public static OI oi;
 	public static Arm arm; 
 	public static BothDriveTrain driveTrain;
-	
-<<<<<<< HEAD
 	public static Lift lift;
-	public static Radio rad;
-=======
-	public static ScissorLift lift;
->>>>>>> 70af35a14f9573475d681fee125c15ecdebe3099
-	public static Shooter shoot;
+    public static Shooter shoot;
 	
     Command autonomousCommand;
     SendableChooser chooser;
@@ -58,14 +46,8 @@ public class Robot extends IterativeRobot {
         
         arm = new Arm();
         driveTrain = new BothDriveTrain();
-<<<<<<< HEAD
         lift = new Lift();
-        rad = new Radio();
-=======
-        lift = new ScissorLift();
->>>>>>> 70af35a14f9573475d681fee125c15ecdebe3099
         shoot = new Shooter();
-        
         SmartDashboard.putData(driveTrain);
         SmartDashboard.putData(arm);
         
