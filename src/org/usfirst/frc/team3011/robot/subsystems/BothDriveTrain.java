@@ -43,9 +43,9 @@ public class BothDriveTrain extends Subsystem {
     	
     }
     
-  //  public void driveJoy(Joystick joy) {
-    //	driver.arcadeDrive(joy);
-  //  }
+    public void driveJoy(Joystick joy) {
+    	driver.arcadeDrive(joy);
+    }
     
     public void driveTankJoy(Joystick joy) {
     	//Joystick leftJoy = joy;

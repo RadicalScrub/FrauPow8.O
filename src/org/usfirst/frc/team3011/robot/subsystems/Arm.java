@@ -26,6 +26,7 @@ public class Arm extends Subsystem {
     	
     }
     
+    
     /**
      * Motor speed is set to .5
      */
