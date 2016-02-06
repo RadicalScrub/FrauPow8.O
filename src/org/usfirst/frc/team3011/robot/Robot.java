@@ -10,7 +10,6 @@ import org.usfirst.frc.team3011.robot.subsystems.Arm;
 import org.usfirst.frc.team3011.robot.subsystems.BothDriveTrain;
 import org.usfirst.frc.team3011.robot.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team3011.robot.subsystems.ScissorLift;
-import org.usfirst.frc.team3011.robot.subsystems.Radio;
 import org.usfirst.frc.team3011.robot.subsystems.Shooter;
 
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -31,7 +30,6 @@ public class Robot extends IterativeRobot {
 	public static BothDriveTrain driveTrain;
 	
 	public static ScissorLift lift;
-	public static Radio rad;
 	public static Shooter shoot;
 	
     Command autonomousCommand;
@@ -50,7 +48,6 @@ public class Robot extends IterativeRobot {
         arm = new Arm();
         driveTrain = new BothDriveTrain();
         lift = new ScissorLift();
-        rad = new Radio();
         shoot = new Shooter();
         
         SmartDashboard.putData(driveTrain);
@@ -113,7 +110,6 @@ public class Robot extends IterativeRobot {
         // continue until interrupted by another command, remove
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
-        
         
     }
 
