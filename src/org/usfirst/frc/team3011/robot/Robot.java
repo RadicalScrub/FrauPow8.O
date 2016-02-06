@@ -31,9 +31,15 @@ public class Robot extends IterativeRobot {
 	public static OI oi;
 	public static Arm arm; 
 	public static BothDriveTrain driveTrain;
+<<<<<<< HEAD
 	public static Lift lift;
     public static Shooter shoot;
 	public static Winch pullWinch;
+=======
+	
+	public static Lift lift;
+	public static Shooter shoot;
+>>>>>>> 379e03edc86afa9a2fb9ca565e108a4d5f6aaeec
 	
     Command autonomousMLG;
     SendableChooser chooser;
