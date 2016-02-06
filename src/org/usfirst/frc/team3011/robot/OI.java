@@ -8,8 +8,6 @@ import org.usfirst.frc.team3011.robot.commands.LiftExtend;
 import org.usfirst.frc.team3011.robot.commands.ShooterInverseSpin;
 import org.usfirst.frc.team3011.robot.commands.LiftRetract;
 import org.usfirst.frc.team3011.robot.commands.ShooterShoot;
-import org.usfirst.frc.team3011.robot.commands.ShooterSpin;
-
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -93,7 +91,7 @@ public class OI {
 		
 
 		//buttonLT2.whileActive(new ArmRotateBack());   change from trigger to button? figure out trigger?
-		//buttonRT2.whileHeld(new ArmRotateForward());  change from trigger to button? figure out trigger?
+		//buttonRedB.whenReleased(new ArmRotateForward());  //change from trigger to button? figure out trigger?
 		
 				
 		

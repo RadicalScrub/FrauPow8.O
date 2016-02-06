@@ -1,9 +1,6 @@
 package org.usfirst.frc.team3011.robot.commands;
 
 import org.usfirst.frc.team3011.robot.Robot;
-import org.usfirst.frc.team3011.robot.subsystems.Shooter;
-
-import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Command;
 
 
