@@ -2,6 +2,7 @@
 package org.usfirst.frc.team3011.robot;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.SerialPort;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -13,6 +14,8 @@ import org.usfirst.frc.team3011.robot.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team3011.robot.subsystems.Lift;
 import org.usfirst.frc.team3011.robot.subsystems.Shooter;
 import org.usfirst.frc.team3011.robot.subsystems.Winch;
+
+import com.kauailabs.nav6.frc.IMU;
 
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -33,6 +36,14 @@ public class Robot extends IterativeRobot {
 	public static Lift lift;
     public static Shooter shoot;
 	public static Winch pullWinch;
+<<<<<<< HEAD
+=======
+	
+	public static boolean firstIter;
+	public static IMU imu;
+	public static SerialPort serialPort;
+	public static boolean isAutoMode = false;
+>>>>>>> 8937e2a9a0880a5ddc44835f34a85a67905f7cc0
 	
     Command autonomousMLG;
     SendableChooser chooser;
@@ -56,6 +67,12 @@ public class Robot extends IterativeRobot {
         SmartDashboard.putData(arm);
         
         autonomousMLG = new autoMLG();
+        
+        serialPort = new SerialPort(57600, SerialPort.Port.kOnboard);
+        byte updateRateHZ = 50;
+        imu = new IMU(serialPort, updateRateHZ);
+        LiveWindow.addSensor("IMU", "Gyro", imu);
+        firstIter = true;
         
         oi = new OI();
     }
