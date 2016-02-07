@@ -29,7 +29,10 @@ public class RobotMap {
 	public static int rightVictorFour = 4; //shooter Left side
 	public static int leftVictorFive = 5; //shooter Right side
 	
-	//public static int rightShift = 6; //right wheel boost
+	public static int leftTalonSix = 6; //left supershifter no. 1
+	public static int rightTalonSeven = 7;   //left supershifter no. 1
+	
+	//public static int rightShift = 8; //left wheel boost
 	
 	
 

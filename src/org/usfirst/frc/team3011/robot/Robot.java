@@ -14,6 +14,7 @@ import org.usfirst.frc.team3011.robot.subsystems.BothDriveTrain;
 import org.usfirst.frc.team3011.robot.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team3011.robot.subsystems.Lift;
 import org.usfirst.frc.team3011.robot.subsystems.Shooter;
+import org.usfirst.frc.team3011.robot.subsystems.SuperShifterLeft;
 import org.usfirst.frc.team3011.robot.subsystems.Winch;
 
 import com.kauailabs.nav6.frc.IMU;
@@ -37,6 +38,7 @@ public class Robot extends IterativeRobot {
 	public static Lift lift;
     public static Shooter shoot;
 	public static Winch pullWinch;
+	public static SuperShifterLeft shiftLeft;
 	
 	public static boolean firstIter;
 	public static IMU imu;
