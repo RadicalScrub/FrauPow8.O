@@ -2,11 +2,11 @@
 package org.usfirst.frc.team3011.robot;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.SerialPort;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import org.usfirst.frc.team3011.robot.commands.ExampleCommand;
-import org.usfirst.frc.team3011.robot.commands.ShooterSpin;
 import org.usfirst.frc.team3011.robot.commands.autoMLG;
 import org.usfirst.frc.team3011.robot.subsystems.Arm;
 import org.usfirst.frc.team3011.robot.subsystems.BothDriveTrain;
@@ -14,6 +14,8 @@ import org.usfirst.frc.team3011.robot.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team3011.robot.subsystems.Lift;
 import org.usfirst.frc.team3011.robot.subsystems.Shooter;
 import org.usfirst.frc.team3011.robot.subsystems.Winch;
+
+import com.kauailabs.nav6.frc.IMU;
 
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -31,15 +33,14 @@ public class Robot extends IterativeRobot {
 	public static OI oi;
 	public static Arm arm; 
 	public static BothDriveTrain driveTrain;
-<<<<<<< HEAD
 	public static Lift lift;
     public static Shooter shoot;
 	public static Winch pullWinch;
-=======
 	
-	public static Lift lift;
-	public static Shooter shoot;
->>>>>>> 379e03edc86afa9a2fb9ca565e108a4d5f6aaeec
+	public static boolean firstIter;
+	public static IMU imu;
+	public static SerialPort serialPort;
+	public static boolean isAutoMode = false;
 	
     Command autonomousMLG;
     SendableChooser chooser;
@@ -63,6 +64,12 @@ public class Robot extends IterativeRobot {
         SmartDashboard.putData(arm);
         
         autonomousMLG = new autoMLG();
+        
+        serialPort = new SerialPort(57600, SerialPort.Port.kOnboard);
+        byte updateRateHZ = 50;
+        imu = new IMU(serialPort, updateRateHZ);
+        LiveWindow.addSensor("IMU", "Gyro", imu);
+        firstIter = true;
         
         oi = new OI();
     }
