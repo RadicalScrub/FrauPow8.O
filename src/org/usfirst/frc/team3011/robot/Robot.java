@@ -3,6 +3,7 @@ package org.usfirst.frc.team3011.robot;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.SerialPort;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -70,6 +71,19 @@ public class Robot extends IterativeRobot {
         LiveWindow.addSensor("IMU", "Gyro", imu);
         firstIter = true;
         
+        SmartDashboard.putBoolean("IMU_Calibrating", true); 				//Calibration period
+    	while (imu.isCalibrating()) {}										//Goes through on startup
+    	SmartDashboard.putBoolean("IMU_Calibrating", imu.isCalibrating());	//Should be false here
+        boolean isCalibrating = imu.isCalibrating();
+        
+        if (firstIter && !isCalibrating) {
+            Timer.delay( 0.3 );  
+            imu.zeroYaw();
+            firstIter = false;
+        }
+        
+        SmartDashboard.putNumber("IMU_Yaw",imu.getYaw());	//orientation data from the NAV6
+        
         oi = new OI();
     }
 	
@@ -112,6 +126,7 @@ public class Robot extends IterativeRobot {
     	
     	// schedule the autonomous command (example)
         
+    	isAutoMode = true;
         if (autonomousMLG != null) autonomousMLG.start();
     }
 
