@@ -3,7 +3,6 @@ package org.usfirst.frc.team3011.robot.subsystems;
 import org.usfirst.frc.team3011.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.Talon;
-import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
