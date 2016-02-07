@@ -36,15 +36,11 @@ public class Robot extends IterativeRobot {
 	public static Lift lift;
     public static Shooter shoot;
 	public static Winch pullWinch;
-<<<<<<< HEAD
-=======
 	
 	public static boolean firstIter;
 	public static IMU imu;
 	public static SerialPort serialPort;
 	public static boolean isAutoMode = false;
->>>>>>> 8937e2a9a0880a5ddc44835f34a85a67905f7cc0
-	
     Command autonomousMLG;
     SendableChooser chooser;
     
