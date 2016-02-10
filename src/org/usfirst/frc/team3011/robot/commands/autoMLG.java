@@ -23,13 +23,13 @@ public class autoMLG extends CommandGroup {
     	requires(Robot.arm);
     	requires(Robot.driveTrain);
     	requires(Robot.shoot);
-    	requires(Robot.lift);
+    	//requires(Robot.lift);
     	
     	addSequential(new ArmKick());
     	addSequential(new DriveForward());
     	addSequential(new ShooterShoot());
-    	addSequential(new LiftExtend());
-    	addSequential(new LiftRetract());
+    	//addSequential(new LiftExtend());
+    	//addSequential(new LiftRetract());
     	
         // A command group will require all of the subsystems that each member
         // would require.

@@ -7,11 +7,9 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import org.usfirst.frc.team3011.robot.commands.ExampleCommand;
 import org.usfirst.frc.team3011.robot.commands.autoMLG;
 import org.usfirst.frc.team3011.robot.subsystems.Arm;
-import org.usfirst.frc.team3011.robot.subsystems.BothDriveTrain;
-import org.usfirst.frc.team3011.robot.subsystems.ExampleSubsystem;
+import org.usfirst.frc.team3011.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team3011.robot.subsystems.Lift;
 import org.usfirst.frc.team3011.robot.subsystems.Shooter;
 import org.usfirst.frc.team3011.robot.subsystems.Winch;
@@ -29,19 +27,18 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * directory.
  */
 public class Robot extends IterativeRobot {
-
-	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
+	
 	public static OI oi;
 	public static Arm arm; 
-	public static BothDriveTrain driveTrain;
-	public static Lift lift;
+	public static DriveTrain driveTrain;
+	//public static Lift lift;
     public static Shooter shoot;
 	public static Winch pullWinch;
 	
 	public static boolean firstIter;
-	public static IMU imu;
-	public static SerialPort serialPort;
-	public static boolean isAutoMode = false;
+	//public static IMU imu;
+	//public static SerialPort serialPort;
+	
     Command autonomousMLG;
     SendableChooser chooser;
     
@@ -51,13 +48,12 @@ public class Robot extends IterativeRobot {
      */
     public void robotInit() {
         chooser = new SendableChooser();
-        chooser.addDefault("Default Auto", new ExampleCommand());
 //        chooser.addObject("My Auto", new MyAutoCommand());
         SmartDashboard.putData("Auto mode", chooser);
         
         arm = new Arm();
-        driveTrain = new BothDriveTrain();
-        lift = new Lift();
+        driveTrain = new DriveTrain();
+        //lift = new Lift();
         shoot = new Shooter();
         pullWinch = new Winch();
         SmartDashboard.putData(driveTrain);
@@ -65,6 +61,7 @@ public class Robot extends IterativeRobot {
         
         autonomousMLG = new autoMLG();
         
+        /*
         serialPort = new SerialPort(57600, SerialPort.Port.kOnboard);
         byte updateRateHZ = 50;
         imu = new IMU(serialPort, updateRateHZ);
@@ -83,6 +80,7 @@ public class Robot extends IterativeRobot {
         }
         
         SmartDashboard.putNumber("IMU_Yaw",imu.getYaw());	//orientation data from the NAV6
+        */
         
         oi = new OI();
     }
@@ -126,7 +124,6 @@ public class Robot extends IterativeRobot {
     	
     	// schedule the autonomous command (example)
         
-    	isAutoMode = true;
         if (autonomousMLG != null) autonomousMLG.start();
     }
 

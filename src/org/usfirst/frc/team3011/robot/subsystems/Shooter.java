@@ -3,6 +3,7 @@ package org.usfirst.frc.team3011.robot.subsystems;
 import org.usfirst.frc.team3011.robot.RobotMap;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 /**
  *
@@ -12,40 +13,47 @@ public class Shooter extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 	
-	Victor shooterMotorLeft = new Victor(RobotMap.leftVictorFive);
-	Victor shooterMotorRight = new Victor(RobotMap.rightVictorFour);
+	private Victor shootLeft;
+	private Victor shootRight;
 	
 
+	public Shooter() {
+		super();
+		
+		shootLeft = new Victor(RobotMap.leftVictorFive);
+		shootRight = new Victor(RobotMap.rightVictorFour);
+		
+		LiveWindow.addActuator("Left Shooter", "Motor", shootLeft);
+		LiveWindow.addActuator("Right Shooter", "Motor", shootRight);
+	}
+	
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     }
     
+    /**
+     * Max forward to shoot ball out of the feed.
+     */
     public void shoot(){
-    	shooterMotorLeft.set(.9);
-    	shooterMotorRight.set(-.9);
-    	/**
-    	try {
-			Thread.sleep(1);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-    	*/
-    	
-    }
-    
-    public void inverseSpin() {
-    	shooterMotorLeft.set(-.5);
-    	shooterMotorRight.set(.5);
+    	shootLeft.set(1);
+    	shootRight.set(1);
     }
     
     /**
-     * Motor speed is set to 0.
+     * Reverse shooter when the ball get stucks.
+     */
+    public void inverseSpin() {
+    	shootLeft.set(-1);
+    	shootRight.set(-1);
+    }
+    
+    /**
+     * Disable motors.
      */
     public void stop() {
-    	shooterMotorLeft.set(0);
-    	shooterMotorRight.set(0);
+    	shootLeft.disable();
+    	shootRight.disable();
     }
     
     //static DigitalInput limitSwitch = newDigitalInput(1);
