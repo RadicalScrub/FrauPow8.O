@@ -52,10 +52,11 @@ public class Robot extends IterativeRobot {
         SmartDashboard.putData("Auto mode", chooser);
         
         arm = new Arm();
-        driveTrain = new DriveTrain();
+        
         //lift = new Lift();
         shoot = new Shooter();
         pullWinch = new Winch();
+        driveTrain = new DriveTrain();
         SmartDashboard.putData(driveTrain);
         SmartDashboard.putData(arm);
         
