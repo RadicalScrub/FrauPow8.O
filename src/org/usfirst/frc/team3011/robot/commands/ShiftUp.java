@@ -21,7 +21,7 @@ public class ShiftUp extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.shiftLeft.shiftUp();
+    	Robot.driveTrain.shiftUp();
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -31,12 +31,12 @@ public class ShiftUp extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.shiftLeft.stop();
+    	Robot.driveTrain.stop();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	Robot.shiftLeft.stop();
+    	end();
     }
 }

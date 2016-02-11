@@ -4,6 +4,7 @@ import org.usfirst.frc.team3011.robot.RobotMap;
 import org.usfirst.frc.team3011.robot.commands.TankDriveTrain;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -13,16 +14,22 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
  */
 public class DriveTrain extends Subsystem {
 	
-	private Talon leftMotor;
-	private Talon rightMotor;
+	private Talon leftMotor1;
+	private Talon leftMotor2;
+	private Talon rightMotor1;
+	private Talon rightMotor2;
 	private RobotDrive driver;
+	
+	private Servo leftServ;
+	private Servo rightServ;
 	
 	public DriveTrain() {
 		super();
 		
 		leftMotor = new Talon(RobotMap.leftTalonOne);
 		rightMotor = new Talon(RobotMap.rightTalonThree);
-		
+		leftServ = new Servo();
+		rightServ = new Servo();
 		driver = new RobotDrive(leftMotor, rightMotor);
 		
 		LiveWindow.addActuator("Left Wheels", "Left Motor", leftMotor);
@@ -80,6 +87,16 @@ public class DriveTrain extends Subsystem {
      */
     public void driveTankJoy(Joystick joy) {
     	driver.tankDrive(-(joy.getRawAxis(1)), -(joy.getRawAxis(5)));
+    }
+    
+    public void shiftUp() {
+    	leftServ.set(1);
+    	rightServ.set(1);
+    }
+    
+    public void shiftDown() {
+    	leftServ.set(0);
+    	rightServ.set(0);
     }
 }
 
