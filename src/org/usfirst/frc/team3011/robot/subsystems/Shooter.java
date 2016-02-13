@@ -20,8 +20,8 @@ public class Shooter extends Subsystem {
 	public Shooter() {
 		super();
 		
-		shootLeft = new Victor(RobotMap.leftVictorFive);
-		shootRight = new Victor(RobotMap.rightVictorFour);
+		shootLeft = new Victor(RobotMap.shootLeftThree);
+		shootRight = new Victor(RobotMap.shootRightFour);
 		
 		LiveWindow.addActuator("Left Shooter", "Motor", shootLeft);
 		LiveWindow.addActuator("Right Shooter", "Motor", shootRight);

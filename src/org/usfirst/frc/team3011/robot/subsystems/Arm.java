@@ -18,6 +18,7 @@ public class Arm extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
+	//CHANGE to Victor if there isn't 5 Talon's on Electronic Board (testBoard)
 	private Victor armMotor;
 	
 	private Encoder enc;
@@ -27,12 +28,12 @@ public class Arm extends Subsystem {
 	public Arm() {
 		super();
 		
-		armMotor = new Victor(RobotMap.leftVictorZero);
+		//CHANGE to pArmMotorZero if there isn't 5 Talon's on Electronic Board (testBoard)
+		armMotor = new Victor(RobotMap.cArmFive);
 		enc = new Encoder(0,1,false,Encoder.EncodingType.k4X);
 		encCount = enc.get();
 		
 		LiveWindow.addActuator("Arm", "Motor", armMotor);
-		
 	}
 	
     public void initDefaultCommand() {

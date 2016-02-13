@@ -20,7 +20,7 @@ public class Lift extends Subsystem {
 	public Lift() {
 		super();
 		
-		liftMotor = new Victor(RobotMap.rightVictorFour);
+		liftMotor = new Victor(RobotMap.liftMotorTwo);
 		
 		LiveWindow.addActuator("Lift", "Motor", liftMotor);
 	}

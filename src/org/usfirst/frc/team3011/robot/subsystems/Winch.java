@@ -19,7 +19,7 @@ public class Winch extends Subsystem {
 	public Winch() {
 		super();
 		
-		winchMotor = new Victor(RobotMap.rightVictorTwo);
+		winchMotor = new Victor(RobotMap.winchMotorOne);
 		
 		LiveWindow.addActuator("Winch", "Motor", winchMotor);
 	}

@@ -17,11 +17,11 @@ public class SuperShift extends Subsystem {
 	public SuperShift() {
 		super();
 		
-		leftServo = new Servo(RobotMap.leftServo);
-		rightServo = new Servo(RobotMap.rightServo);
+		leftServo = new Servo(RobotMap.leftServoEight);
+		rightServo = new Servo(RobotMap.rightServoNine);
 		
-		LiveWindow.addActuator("Left Servo", "Servo", leftServo);
-		LiveWindow.addActuator("Right Servo", "Servo", rightServo);
+		LiveWindow.addActuator("SuperShift", "Left Servo", leftServo);
+		LiveWindow.addActuator("SuperShift", "Right Servo", rightServo);
 	}
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
