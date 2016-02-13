@@ -86,7 +86,5 @@ public class DriveTrain extends Subsystem {
     	driver.tankDrive(-(joy.getRawAxis(1)), -(joy.getRawAxis(5)));
     }
     
-   
-    }
 }
 
