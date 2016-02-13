@@ -20,19 +20,19 @@ public class RobotMap {
 	
 	//DO NOT REUSE PORTS. DON'T WASTE 78,162,863,798,123 HOURS DEBUGGING. IF YOU DO, UR DUMB.
 	
-	public static int leftVictorZero = 0; //shooter
+	public static int leftVictorZero = 0; //Arm
 	public static int leftTalonOne = 1; //drive
 	
-	public static int rightVictorTwo = 2;  //arm 
+	public static int rightVictorTwo = 2;  //winchMotor
 	public static int rightTalonThree = 3; // drive
 	
-	public static int rightVictorFour = 4; //shooter Left side
-	public static int leftVictorFive = 5; //shooter Right side
+	public static int rightVictorFour = 4; //Lift & shootRight
+	public static int leftVictorFive = 5; //shootLeft
 	
-	public static int rightShift = 6; //right wheel boost
+	//public static int rightShift = 6; //right wheel boost
 	
-	public static int leftServo = 8; 
-	public static int rightServo = 9;
+	public static int leftServo = 8; //leftServo
+	public static int rightServo = 9; //rightServo
 	
 	
 
