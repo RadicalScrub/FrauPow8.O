@@ -20,17 +20,14 @@ public class DriveTrain extends Subsystem {
 	private Talon rightMotor2;
 	private RobotDrive driver;
 	
-	private Servo leftServ;
-	private Servo rightServ;
+	
 	
 	public DriveTrain() {
 		super();
 		
 		leftMotor = new Talon(RobotMap.leftTalonOne);
 		rightMotor = new Talon(RobotMap.rightTalonThree);
-		leftServ = new Servo();
-		rightServ = new Servo();
-		driver = new RobotDrive(leftMotor, rightMotor);
+				driver = new RobotDrive(leftMotor, rightMotor);
 		
 		LiveWindow.addActuator("Left Wheels", "Left Motor", leftMotor);
 		LiveWindow.addActuator("Right Wheels", "Right Motor", rightMotor);
@@ -89,14 +86,7 @@ public class DriveTrain extends Subsystem {
     	driver.tankDrive(-(joy.getRawAxis(1)), -(joy.getRawAxis(5)));
     }
     
-    public void shiftUp() {
-    	leftServ.set(1);
-    	rightServ.set(1);
-    }
-    
-    public void shiftDown() {
-    	leftServ.set(0);
-    	rightServ.set(0);
+   
     }
 }
 

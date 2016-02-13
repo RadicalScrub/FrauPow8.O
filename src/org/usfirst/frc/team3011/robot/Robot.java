@@ -12,6 +12,7 @@ import org.usfirst.frc.team3011.robot.subsystems.Arm;
 import org.usfirst.frc.team3011.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team3011.robot.subsystems.Lift;
 import org.usfirst.frc.team3011.robot.subsystems.Shooter;
+import org.usfirst.frc.team3011.robot.subsystems.SuperShift;
 import org.usfirst.frc.team3011.robot.subsystems.Winch;
 
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -32,6 +33,7 @@ public class Robot extends IterativeRobot {
 	//public static Lift lift;
     public static Shooter shoot;
 	public static Winch pullWinch;
+	public static SuperShift shifter;
 	
 	public static boolean firstIter;
 	//public static IMU imu;
@@ -55,6 +57,8 @@ public class Robot extends IterativeRobot {
         shoot = new Shooter();
         pullWinch = new Winch();
         driveTrain = new DriveTrain();
+        shifter = new SuperShift();
+        
         SmartDashboard.putData(driveTrain);
         SmartDashboard.putData(arm);
         

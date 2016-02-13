@@ -31,6 +31,9 @@ public class RobotMap {
 	
 	public static int rightShift = 6; //right wheel boost
 	
+	public static int leftServo = 8; 
+	public static int rightServo = 9;
+	
 	
 
 	
