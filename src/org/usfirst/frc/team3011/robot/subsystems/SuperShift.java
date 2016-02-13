@@ -4,6 +4,7 @@ import org.usfirst.frc.team3011.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 /**
  *
@@ -18,7 +19,9 @@ public class SuperShift extends Subsystem {
 		
 		leftServo = new Servo(RobotMap.leftServo);
 		rightServo = new Servo(RobotMap.rightServo);
-
+		
+		LiveWindow.addActuator("Left Servo", "Servo", leftServo);
+		LiveWindow.addActuator("Right Servo", "Servo", rightServo);
 	}
     // Put methods for controlling this subsystem
     // here. Call these from Commands.

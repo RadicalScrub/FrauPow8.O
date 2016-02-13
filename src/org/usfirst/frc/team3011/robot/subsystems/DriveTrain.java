@@ -20,14 +20,12 @@ public class DriveTrain extends Subsystem {
 	private Talon rightMotor2;
 	private RobotDrive driver;
 	
-	
-	
 	public DriveTrain() {
 		super();
 		
 		leftMotor = new Talon(RobotMap.leftTalonOne);
 		rightMotor = new Talon(RobotMap.rightTalonThree);
-				driver = new RobotDrive(leftMotor, rightMotor);
+		driver = new RobotDrive(leftMotor, rightMotor);
 		
 		LiveWindow.addActuator("Left Wheels", "Left Motor", leftMotor);
 		LiveWindow.addActuator("Right Wheels", "Right Motor", rightMotor);
