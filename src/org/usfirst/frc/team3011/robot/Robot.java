@@ -14,8 +14,6 @@ import org.usfirst.frc.team3011.robot.subsystems.Lift;
 import org.usfirst.frc.team3011.robot.subsystems.Shooter;
 import org.usfirst.frc.team3011.robot.subsystems.Winch;
 
-import com.kauailabs.nav6.frc.IMU;
-
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
