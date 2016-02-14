@@ -29,20 +29,25 @@ public class Lift extends Subsystem {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     }
-    
+    /**
+     * Shoots hook up onto the rung for endGame Tower climb.
+     */
     public void forward(){
-    	liftMotor.set(.8);
+    	liftMotor.set(1);
     }
     
+    /**
+     * TEST CODE. Not sure if this will be implemented.
+     */
     public void backward() {
-    	liftMotor.set(-.8);
+    	liftMotor.set(-1);
     }
     
     /**
      * Motor speed is set to 0.
      */
     public void stop() {
-    	liftMotor.set(0);
+    	liftMotor.disable();
     }
     
 }

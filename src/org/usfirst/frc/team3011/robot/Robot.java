@@ -52,15 +52,18 @@ public class Robot extends IterativeRobot {
         SmartDashboard.putData("Auto mode", chooser);
         
         arm = new Arm();
-        
-        //lift = new Lift();
+        lift = new Lift();
         shoot = new Shooter();
         winch = new Winch();
         driveTrain = new DriveTrain();
         shifter = new SuperShift();
         
-        SmartDashboard.putData(driveTrain);
         SmartDashboard.putData(arm);
+        SmartDashboard.putData(lift);
+        SmartDashboard.putData(shoot);
+        SmartDashboard.putData(winch);
+        SmartDashboard.putData(driveTrain);
+        SmartDashboard.putData(shifter);
         
         autonomousMLG = new autoMLG();
         

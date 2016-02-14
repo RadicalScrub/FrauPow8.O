@@ -31,11 +31,17 @@ public class SuperShift extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
     
+    /**
+     * Speeds up DriveTrain.
+     */
     public void shiftUp() {
     	leftServo.set(1);
     	rightServo.set(1);
     }
     
+    /**
+     * DriveTrain to default speed.
+     */
     public void shiftDown() {
     	leftServo.set(0);
     	rightServo.set(0);
