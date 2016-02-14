@@ -30,9 +30,9 @@ public class Robot extends IterativeRobot {
 	public static OI oi;
 	public static Arm arm; 
 	public static DriveTrain driveTrain;
-	//public static Lift lift;
+	public static Lift lift;
     public static Shooter shoot;
-	public static Winch pullWinch;
+	public static Winch winch;
 	public static SuperShift shifter;
 	
 	public static boolean firstIter;
@@ -55,7 +55,7 @@ public class Robot extends IterativeRobot {
         
         //lift = new Lift();
         shoot = new Shooter();
-        pullWinch = new Winch();
+        winch = new Winch();
         driveTrain = new DriveTrain();
         shifter = new SuperShift();
         

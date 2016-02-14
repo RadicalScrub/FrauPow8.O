@@ -5,6 +5,10 @@ import org.usfirst.frc.team3011.robot.commands.LiftExtend;
 import org.usfirst.frc.team3011.robot.commands.ShooterInverseSpin;
 import org.usfirst.frc.team3011.robot.commands.LiftRetract;
 import org.usfirst.frc.team3011.robot.commands.ShooterShoot;
+import org.usfirst.frc.team3011.robot.commands.WinchDown;
+import org.usfirst.frc.team3011.robot.commands.WinchStop;
+import org.usfirst.frc.team3011.robot.commands.WinchUp;
+
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -60,9 +64,11 @@ public class OI {
 		buttonRightThumb = new JoystickButton(controllerDrive, 11);
 
 		
-		buttonGreenA.whileHeld(new LiftRetract());
-		//B winch up
-		buttonYellowY.whileHeld(new LiftExtend()); //Y extend lift
+		//buttonGreenA.whileHeld(new LiftRetract());
+		buttonRedB.whileHeld(new WinchDown());
+		//buttonBlueX.whileHeld(new LiftExtend());
+		buttonGreenA.whileHeld(new WinchStop());
+		buttonYellowY.whileHeld(new WinchUp());
 		//LT Lock forward/directon
 		//RT whileheld boost
 		

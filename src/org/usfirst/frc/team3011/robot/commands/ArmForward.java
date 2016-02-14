@@ -7,12 +7,13 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class LiftRetract extends Command {
+public class ArmForward extends Command {
 
-    public LiftRetract() {
+    public ArmForward() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.lift);
+    	
+    	requires(Robot.arm);
     }
 
     // Called just before this Command runs the first time
@@ -21,8 +22,8 @@ public class LiftRetract extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.lift.backward();
-    	
+    	//Robot.arm.forward();
+    	Robot.arm.forward();
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -32,15 +33,12 @@ public class LiftRetract extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.lift.stop();
+    	Robot.arm.stop();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	end();
+    	Robot.arm.stop();
     }
-    
-    
 }
-
