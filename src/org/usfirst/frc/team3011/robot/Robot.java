@@ -30,7 +30,7 @@ public class Robot extends IterativeRobot {
 	public static OI oi;
 	public static Arm arm; 
 	public static DriveTrain driveTrain;
-	//public static Lift lift;
+	public static Lift lift;
     public static Shooter shoot;
 	public static Winch pullWinch;
 	public static SuperShift shifter;
@@ -52,15 +52,18 @@ public class Robot extends IterativeRobot {
         SmartDashboard.putData("Auto mode", chooser);
         
         arm = new Arm();
-        
-        //lift = new Lift();
+        lift = new Lift();
         shoot = new Shooter();
         pullWinch = new Winch();
         driveTrain = new DriveTrain();
         shifter = new SuperShift();
         
-        SmartDashboard.putData(driveTrain);
         SmartDashboard.putData(arm);
+        SmartDashboard.putData(lift);
+        SmartDashboard.putData(shoot);
+        SmartDashboard.putData(pullWinch);
+        SmartDashboard.putData(driveTrain);
+        SmartDashboard.putData(shifter);
         
         autonomousMLG = new autoMLG();
         
