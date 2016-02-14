@@ -6,11 +6,11 @@ import org.usfirst.frc.team3011.robot.commands.ArmForward;
 import org.usfirst.frc.team3011.robot.commands.LiftExtend;
 import org.usfirst.frc.team3011.robot.commands.ShooterInverseSpin;
 import org.usfirst.frc.team3011.robot.commands.LiftRetract;
+import org.usfirst.frc.team3011.robot.commands.ShiftDown;
+import org.usfirst.frc.team3011.robot.commands.ShiftUp;
 import org.usfirst.frc.team3011.robot.commands.ShooterShoot;
 import org.usfirst.frc.team3011.robot.commands.WinchDown;
-import org.usfirst.frc.team3011.robot.commands.WinchStop;
 import org.usfirst.frc.team3011.robot.commands.WinchUp;
-
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -27,11 +27,11 @@ public class OI {
 	private Button buttonRedB;
 	private Button buttonBlueX;
 	private Button buttonYellowY;
-	private Button buttonTopLeft;
-	private Button buttonTopRight;
-	private Button buttonMiddleBack;
-	private Button buttonMiddleStart;
-	private Button buttonMiddleLogi;
+	private Button buttonLB;
+	private Button buttonRB;
+	//private Button buttonMiddleBack;
+	//private Button buttonMiddleStart;
+	//private Button buttonMiddleLogi;
 	private Button buttonLeftThumb;
 	private Button buttonRightThumb;
 
@@ -51,24 +51,27 @@ public class OI {
 	
 	public OI() {
 		
-		controllerDrive = new Joystick(0);
+		controllerDrive = new Joystick(0);							//Driver 1
 
-		buttonGreenA = new JoystickButton(controllerDrive, 1);
-		buttonRedB = new JoystickButton(controllerDrive, 2);
-		buttonBlueX = new JoystickButton(controllerDrive, 3);
-		buttonYellowY = new JoystickButton(controllerDrive, 4);
-		buttonTopLeft = new JoystickButton(controllerDrive, 5);
-		buttonTopRight = new JoystickButton(controllerDrive, 6);
-		buttonMiddleBack = new JoystickButton(controllerDrive, 7);
-		buttonMiddleStart = new JoystickButton(controllerDrive, 8);
-		buttonMiddleLogi = new JoystickButton(controllerDrive, 9);
-		buttonLeftThumb = new JoystickButton(controllerDrive, 10);
-		buttonRightThumb = new JoystickButton(controllerDrive, 11);
+		buttonGreenA = new JoystickButton(controllerDrive, 1);		//A
+		buttonRedB = new JoystickButton(controllerDrive, 2);		//B
+		buttonBlueX = new JoystickButton(controllerDrive, 3);		//X
+		buttonYellowY = new JoystickButton(controllerDrive, 4);		//Y
+		buttonLB = new JoystickButton(controllerDrive, 5);			//LB
+		buttonRB = new JoystickButton(controllerDrive, 6);			//RB
+		//buttonMiddleBack = new JoystickButton(controllerDrive, 7);
+		//buttonMiddleStart = new JoystickButton(controllerDrive, 8);
+		//buttonMiddleLogi = new JoystickButton(controllerDrive, 9);
+		buttonLeftThumb = new JoystickButton(controllerDrive, 10);	//Left stick
+		buttonRightThumb = new JoystickButton(controllerDrive, 11);	//Right stick
 
+		
 		buttonGreenA.whileHeld(new LiftRetract());     				//retracts the hook lift
 		buttonBlueX.whileHeld(new LiftExtend());	   				//extends the hook lift
 		buttonRedB.whileHeld(new WinchUp());		   				//pulls up the robot
 		buttonYellowY.whileHeld(new WinchDown());	   				//lowers the robot
+		buttonRB.whenPressed(new ShiftUp());						//triggers boost
+		buttonRB.whenReleased(new ShiftDown());						//ends boost
 		
 		//Dpad
 		//left 90 degrees left spin
@@ -92,9 +95,8 @@ public class OI {
 		buttonRedB2.whileActive(new ShooterInverseSpin());			// spin shooter inward to free of jams
 		//buttonBlueX2.whenReleased(new arm full forward)
 		//buttonYellowY2.whenReleased(new arm full backwards)
-		buttonLT2.whileHeld(new ArmForward());	//LT Arm up
-		buttonRT2.whileHeld(new ArmBack());//RT Arm down
-		
+		buttonLT2.whileHeld(new ArmForward());						//Manual arm control forward
+		buttonRT2.whileHeld(new ArmBack());							//Manual Arm control back		
 	}
 	
 	//talons on wheels and limit switches
