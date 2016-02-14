@@ -32,7 +32,7 @@ public class Robot extends IterativeRobot {
 	public static DriveTrain driveTrain;
 	public static Lift lift;
     public static Shooter shoot;
-	public static Winch pullWinch;
+	public static Winch winch;
 	public static SuperShift shifter;
 	
 	public static boolean firstIter;
@@ -54,14 +54,14 @@ public class Robot extends IterativeRobot {
         arm = new Arm();
         lift = new Lift();
         shoot = new Shooter();
-        pullWinch = new Winch();
+        winch = new Winch();
         driveTrain = new DriveTrain();
         shifter = new SuperShift();
         
         SmartDashboard.putData(arm);
         SmartDashboard.putData(lift);
         SmartDashboard.putData(shoot);
-        SmartDashboard.putData(pullWinch);
+        SmartDashboard.putData(winch);
         SmartDashboard.putData(driveTrain);
         SmartDashboard.putData(shifter);
         

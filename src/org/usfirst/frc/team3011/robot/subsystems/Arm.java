@@ -3,7 +3,6 @@ package org.usfirst.frc.team3011.robot.subsystems;
 import org.usfirst.frc.team3011.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.Encoder;
-import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -29,7 +28,7 @@ public class Arm extends Subsystem {
 		super();
 		
 		//CHANGE to pArmMotorZero if there isn't 5 Talon's on Electronic Board (testBoard)
-		armMotor = new Victor(RobotMap.cArmFive);
+		armMotor = new Victor(RobotMap.pArmMotorZero);
 		enc = new Encoder(0,1,false,Encoder.EncodingType.k4X);
 		encCount = enc.get();
 		
