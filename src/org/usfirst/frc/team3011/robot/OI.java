@@ -1,6 +1,8 @@
 package org.usfirst.frc.team3011.robot;
 
 
+import org.usfirst.frc.team3011.robot.commands.ArmBack;
+import org.usfirst.frc.team3011.robot.commands.ArmForward;
 import org.usfirst.frc.team3011.robot.commands.LiftExtend;
 import org.usfirst.frc.team3011.robot.commands.ShooterInverseSpin;
 import org.usfirst.frc.team3011.robot.commands.LiftRetract;
@@ -63,64 +65,42 @@ public class OI {
 		buttonLeftThumb = new JoystickButton(controllerDrive, 10);
 		buttonRightThumb = new JoystickButton(controllerDrive, 11);
 
-		
-		//buttonGreenA.whileHeld(new LiftRetract());
-		buttonRedB.whileHeld(new WinchDown());
-		//buttonBlueX.whileHeld(new LiftExtend());
-		buttonGreenA.whileHeld(new WinchStop());
-		buttonYellowY.whileHeld(new WinchUp());
-		//LT Lock forward/directon
-		//RT whileheld boost
+		buttonGreenA.whileHeld(new LiftRetract());     				//retracts the hook lift
+		buttonBlueX.whileHeld(new LiftExtend());	   				//extends the hook lift
+		buttonRedB.whileHeld(new WinchUp());		   				//pulls up the robot
+		buttonYellowY.whileHeld(new WinchDown());	   				//lowers the robot
 		
 		//Dpad
 		//left 90 degrees left spin
 		//right 90 degrees right spin
 		//down 108 degree spin
 		
-		//Joystick drive
-		
 		//controllerDrive #2 the operator controllerDrive 
 
-		controllerOp = new Joystick(1);
+		controllerOp = new Joystick(1);								//Driver 2
 
-		buttonGreenA2 = new JoystickButton(controllerOp, 1);
-		buttonRedB2 = new JoystickButton(controllerOp, 2);
-		buttonBlueX2 =new JoystickButton(controllerOp, 3);
-		buttonYellowY2 = new JoystickButton(controllerOp, 4);
-		buttonRB2 = new JoystickButton(controllerOp, 5);
-		buttonLB2 = new JoystickButton(controllerOp, 6);
-		buttonRT2 = new JoystickButton(controllerOp, 7);
-		buttonLT2 = new JoystickButton(controllerOp, 8);
+		buttonGreenA2 = new JoystickButton(controllerOp, 1);		//A
+		buttonRedB2 = new JoystickButton(controllerOp, 2);			//B
+		buttonBlueX2 =new JoystickButton(controllerOp, 3);			//X
+		buttonYellowY2 = new JoystickButton(controllerOp, 4);		//Y
+		buttonRB2 = new JoystickButton(controllerOp, 5);			//RB
+		buttonLB2 = new JoystickButton(controllerOp, 6);			//LR
+		buttonRT2 = new JoystickButton(controllerOp, 7);			//RT
+		buttonLT2 = new JoystickButton(controllerOp, 8);			//LT
 		
-
-		//buttonLT2.whileActive(new ArmRotateBack());   change from trigger to button? figure out trigger?
-		//buttonRedB.whenReleased(new ArmRotateForward());  //change from trigger to button? figure out trigger?
-		
-				
-		
-		
-		//X Arm full forward rotation
-		buttonGreenA2.whenPressed(new ShooterShoot());// includes speeding up shooter and one full arm rotation
-		buttonRedB2.whileActive(new ShooterInverseSpin());// spin shooter inward 
+		buttonGreenA2.whenPressed(new ShooterShoot());				// includes speeding up shooter and one full arm rotation
+		buttonRedB2.whileActive(new ShooterInverseSpin());			// spin shooter inward to free of jams
 		//buttonBlueX2.whenReleased(new arm full forward)
 		//buttonYellowY2.whenReleased(new arm full backwards)
-		//Y Arm Full backwards rotation
-		//LT Arm up
-		//RT Arm down
-		//Dpad up raise shooter     probably not on robot
-		//dpad down lower shooter   probably not on robot
+		buttonLT2.whileHeld(new ArmForward());	//LT Arm up
+		buttonRT2.whileHeld(new ArmBack());//RT Arm down
 		
 	}
-	
-	
 	
 	//talons on wheels and limit switches
 	//	lifts and drive train
 	//victors on everything else
 		//shooter
-	
-	
-	
 	
 	
     //// CREATING BUTTONS
