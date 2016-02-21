@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class ArmKick extends Command {
-
+	
     public ArmKick() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);

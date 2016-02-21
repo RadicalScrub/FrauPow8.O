@@ -3,6 +3,7 @@ package org.usfirst.frc.team3011.robot.commands;
 import org.usfirst.frc.team3011.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
+import edu.wpi.first.wpilibj.command.WaitCommand;
 
 /**
  *
@@ -27,10 +28,14 @@ public class ShooterShoot extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
     	
-    	requires(Robot.arm);
+    	requires(Robot.shoot);
     	requires(Robot.arm);
     	
-    	addSequential(new ShooterSpin());
+    	addSequential(new ArmBack());
+    	addParallel(new ShooterShoot(), 5);
+    	
+    	addSequential(new ArmKick());
+    	addParallel(new ShooterShoot(), 1);
     	
     	
     }

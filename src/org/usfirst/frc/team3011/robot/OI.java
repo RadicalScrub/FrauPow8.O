@@ -22,19 +22,21 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 public class OI {
 	
 	public static Joystick controllerDrive;
-	
 	private Button buttonGreenA;
 	private Button buttonRedB;
 	private Button buttonBlueX;
 	private Button buttonYellowY;
 	private Button buttonLB;
 	private Button buttonRB;
-	//private Button buttonMiddleBack;
-	//private Button buttonMiddleStart;
-	//private Button buttonMiddleLogi;
 	private Button buttonLeftThumb;
 	private Button buttonRightThumb;
+	/*
+	private Button buttonMiddleBack;
+	private Button buttonMiddleStart;
+	private Button buttonMiddleLogi;
+	*/
 
+	/*
 	//controllerDrive #2 the operator controllerDrive 
 	
 	public static Joystick controllerOp;
@@ -48,7 +50,10 @@ public class OI {
 	private Button buttonRT2;
 	private Button buttonLT2;
 	
-	
+	private Button buttonMiddleBack2;
+	private Button buttonMiddleStart2;
+	private Button buttonMiddleLogi2;
+	*/
 	public OI() {
 		
 		controllerDrive = new Joystick(0);							//Driver 1
@@ -59,25 +64,27 @@ public class OI {
 		buttonYellowY = new JoystickButton(controllerDrive, 4);		//Y
 		buttonLB = new JoystickButton(controllerDrive, 5);			//LB
 		buttonRB = new JoystickButton(controllerDrive, 6);			//RB
-		//buttonMiddleBack = new JoystickButton(controllerDrive, 7);
-		//buttonMiddleStart = new JoystickButton(controllerDrive, 8);
-		//buttonMiddleLogi = new JoystickButton(controllerDrive, 9);
 		buttonLeftThumb = new JoystickButton(controllerDrive, 10);	//Left stick
 		buttonRightThumb = new JoystickButton(controllerDrive, 11);	//Right stick
-
+		/*
+		buttonMiddleBack = new JoystickButton(controllerDrive, 7);
+		buttonMiddleStart = new JoystickButton(controllerDrive, 8);
+		buttonMiddleLogi = new JoystickButton(controllerDrive, 9);
+		*/
 		
 		buttonGreenA.whileHeld(new LiftRetract());     				//retracts the hook lift
 		buttonBlueX.whileHeld(new LiftExtend());	   				//extends the hook lift
 		buttonRedB.whileHeld(new WinchUp());		   				//pulls up the robot
 		buttonYellowY.whileHeld(new WinchDown());	   				//lowers the robot
 		buttonRB.whenPressed(new ShiftUp());						//triggers boost
-		buttonRB.whenReleased(new ShiftNormal());						//ends boost
+		buttonRB.whenReleased(new ShiftNormal());					//ends boost
 		
 		//Dpad
 		//left 90 degrees left spin
 		//right 90 degrees right spin
 		//down 108 degree spin
 		
+		/*
 		//controllerDrive #2 the operator controllerDrive 
 
 		controllerOp = new Joystick(1);								//Driver 2
@@ -91,12 +98,10 @@ public class OI {
 		buttonRT2 = new JoystickButton(controllerOp, 7);			//RT
 		buttonLT2 = new JoystickButton(controllerOp, 8);			//LT
 		
-		/*
-		buttonGreenA2.whenPressed(new ShooterShoot());				// includes speeding up shooter and one full arm rotation
-		buttonRedB2.whileActive(new ShooterInverseSpin());			// spin shooter inward to free of jams
-		
-		buttonLT2.whileHeld(new ArmKick());						//Manual arm control forward
-		buttonRT2.whileHeld(new ArmBack());							//Manual Arm control back		
+		buttonMiddleBack = new JoystickButton(controllerDrive, 7);
+		buttonMiddleStart = new JoystickButton(controllerDrive, 8);
+		buttonMiddleLogi = new JoystickButton(controllerDrive, 9);
+			
 		*/
 		
 		buttonGreenA.whileHeld(new ArmKick());
