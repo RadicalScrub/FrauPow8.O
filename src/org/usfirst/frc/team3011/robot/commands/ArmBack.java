@@ -12,7 +12,6 @@ public class ArmBack extends Command {
     public ArmBack() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	
     	requires(Robot.arm);
     }
 
