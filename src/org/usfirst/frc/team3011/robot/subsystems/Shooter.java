@@ -23,6 +23,9 @@ public class Shooter extends Subsystem {
 		shootLeft = new Victor(RobotMap.shootLeftThree);
 		shootRight = new Victor(RobotMap.shootRightFour);
 		
+		shootLeft.setSafetyEnabled(true);
+		shootRight.setSafetyEnabled(true);
+		
 		LiveWindow.addActuator("Left Shooter", "Motor", shootLeft);
 		LiveWindow.addActuator("Right Shooter", "Motor", shootRight);
 	}
@@ -32,20 +35,9 @@ public class Shooter extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
     
-    /**
-     * Max forward to shoot ball out of the feed.
-     */
-    public void shoot(){
-    	shootLeft.set(1);
-    	shootRight.set(1);
-    }
-    
-    /**
-     * Reverse shooter when the ball get stucks.
-     */
-    public void inverseSpin() {
-    	shootLeft.set(-1);
-    	shootRight.set(-1);
+    public void setShoot(double speed) {
+    	shootLeft.set(speed);
+    	shootRight.set(speed);
     }
     
     /**

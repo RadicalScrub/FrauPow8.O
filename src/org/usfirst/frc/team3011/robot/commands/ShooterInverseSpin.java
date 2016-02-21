@@ -22,7 +22,7 @@ public class ShooterInverseSpin extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.shoot.inverseSpin();
+    	Robot.shoot.setShoot(-1);;
     	
     }
 
@@ -33,7 +33,7 @@ public class ShooterInverseSpin extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.shoot.inverseSpin();
+    	Robot.shoot.stop();
     }
 
     // Called when another command which requires one or more of the same

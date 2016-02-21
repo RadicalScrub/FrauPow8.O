@@ -3,7 +3,8 @@ package org.usfirst.frc.team3011.robot.subsystems;
 
 import org.usfirst.frc.team3011.robot.RobotMap;
 
-import edu.wpi.first.wpilibj.Victor;
+import edu.wpi.first.wpilibj.Relay;
+import edu.wpi.first.wpilibj.Relay.Value;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
@@ -15,13 +16,13 @@ public class Lift extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 	
-	private Victor liftMotor;
+	private Relay liftMotor;
 	
 	public Lift() {
 		super();
 		
-		liftMotor = new Victor(RobotMap.liftMotorTwo);
-		
+		liftMotor = new Relay(RobotMap.liftMotorTwo);
+		liftMotor.setSafetyEnabled(true);
 		LiveWindow.addActuator("Lift", "Motor", liftMotor);
 	}
 
@@ -29,25 +30,13 @@ public class Lift extends Subsystem {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     }
-    /**
-     * Shoots hook up onto the rung for endGame Tower climb.
-     */
-    public void forward(){
-    	liftMotor.set(1);
+    
+    public void setState(Value relayValue) {
+    	liftMotor.set(relayValue);
     }
     
-    /**
-     * TEST CODE. Not sure if this will be implemented.
-     */
-    public void backward() {
-    	liftMotor.set(-1);
-    }
-    
-    /**
-     * Motor speed is set to 0.
-     */
     public void stop() {
-    	liftMotor.disable();
+    	liftMotor.stopMotor();
     }
     
 }

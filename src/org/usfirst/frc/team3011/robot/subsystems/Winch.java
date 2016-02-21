@@ -21,6 +21,8 @@ public class Winch extends Subsystem {
 		
 		winchMotor = new Victor(RobotMap.winchMotorOne);
 		
+		winchMotor.setSafetyEnabled(true);
+		
 		LiveWindow.addActuator("Winch", "Motor", winchMotor);
 	}
     public void initDefaultCommand() {
@@ -29,17 +31,11 @@ public class Winch extends Subsystem {
     }
     
     /**
-     * Winch pulls up Lift by Speed 1
+     * Sets speed for Winch.
+     * @param speed - Between -71 and 1.
      */
-    public void up(){
-    	winchMotor.set(1);
-    }
-    
-    /**
-     * Winch pulls down Lift backward by Speed -1
-     */
-    public void down() {
-    	winchMotor.set(-1);
+    public void setSpeed(double speed) {
+    	winchMotor.set(speed);
     }
     
     /**

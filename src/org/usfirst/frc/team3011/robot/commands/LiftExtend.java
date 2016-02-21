@@ -2,6 +2,7 @@ package org.usfirst.frc.team3011.robot.commands;
 
 import org.usfirst.frc.team3011.robot.Robot;
 
+import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
@@ -21,7 +22,7 @@ public class LiftExtend extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.lift.forward();
+    	Robot.lift.setState(Relay.Value.kForward);
     	
     }
 

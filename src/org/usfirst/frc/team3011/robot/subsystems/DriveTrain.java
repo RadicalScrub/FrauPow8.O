@@ -6,8 +6,6 @@ import org.usfirst.frc.team3011.robot.commands.TankDriveTrain;
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
-import edu.wpi.first.wpilibj.Servo;
-import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
@@ -33,6 +31,11 @@ public class DriveTrain extends Subsystem {
 		rightMotor1 = new CANTalon(RobotMap.rightDriveThree);
 		rightMotor2 = new CANTalon(RobotMap.rightDriveFour);
 		
+		leftMotor1.setSafetyEnabled(true);
+		leftMotor2.setSafetyEnabled(true);
+		rightMotor1.setSafetyEnabled(true);
+		rightMotor2.setSafetyEnabled(true);
+		
 		driver = new RobotDrive(leftMotor1, leftMotor2, rightMotor1, rightMotor2);
 		
 		LiveWindow.addActuator("Drive Train", "Left Motor1", leftMotor1);
@@ -52,33 +55,34 @@ public class DriveTrain extends Subsystem {
     }
     
     /**
-     * Test code. Motors spin forward at max speed.
+     * Sets speed for DriveTrain.
+     * @param speed - Between -1 & 1.
      */
-    public void forward() {
-    	leftMotor1.set(1);
-    	leftMotor2.set(1);
-    	rightMotor1.set(1);
-    	rightMotor2.set(1);
+    public void setSpeed(double speed) {
+    	leftMotor1.set(speed);
+    	leftMotor2.set(speed);
+    	rightMotor1.set(speed);
+    	rightMotor2.set(speed);
     }
     
-    /**
-     * Test code. Motors spin backward at max speed.
-     */
-    public void backward() {
-    	leftMotor1.set(-1);
-    	leftMotor2.set(-1);
-    	rightMotor1.set(-1);
-    	rightMotor2.set(-1);
-    }
-    
-    /**
-     * Stop motors.
-     */
     public void stop() {
     	leftMotor1.disable();
     	leftMotor2.disable();
     	rightMotor1.disable();
     	rightMotor2.disable();
+    }
+    
+    public void betterDrive(Joystick joy) {
+    	double leftAxis = -(joy.getRawAxis(0));	//Left Y-Axis
+    	double rightAxis = joy.getRawAxis(4);	//Right X-Axis
+    	
+    	if(rightAxis == 0) {
+    		leftMotor1.set(leftAxis);
+    		leftMotor2.set(leftAxis);
+    		rightMotor1.set(leftAxis);
+    		rightMotor2.set(leftAxis);
+    	}
+    	
     }
     
     /**

@@ -9,15 +9,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  */
 public class ShooterShoot extends CommandGroup {
     
-	
     public  ShooterShoot() {
-    	requires(Robot.arm);
-    	requires(Robot.shoot);
-    	
-    	addParallel(new ShooterSpin());
-    	addSequential(new ArmKick());
-    	
-    	end();
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
@@ -34,5 +26,12 @@ public class ShooterShoot extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
+    	
+    	requires(Robot.arm);
+    	requires(Robot.arm);
+    	
+    	addSequential(new ShooterSpin());
+    	
+    	
     }
 }

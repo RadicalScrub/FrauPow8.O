@@ -2,11 +2,11 @@ package org.usfirst.frc.team3011.robot;
 
 
 import org.usfirst.frc.team3011.robot.commands.ArmBack;
-import org.usfirst.frc.team3011.robot.commands.ArmForward;
+import org.usfirst.frc.team3011.robot.commands.ArmKick;
 import org.usfirst.frc.team3011.robot.commands.LiftExtend;
 import org.usfirst.frc.team3011.robot.commands.ShooterInverseSpin;
 import org.usfirst.frc.team3011.robot.commands.LiftRetract;
-import org.usfirst.frc.team3011.robot.commands.ShiftDown;
+import org.usfirst.frc.team3011.robot.commands.ShiftNormal;
 import org.usfirst.frc.team3011.robot.commands.ShiftUp;
 import org.usfirst.frc.team3011.robot.commands.ShooterShoot;
 import org.usfirst.frc.team3011.robot.commands.WinchDown;
@@ -71,7 +71,7 @@ public class OI {
 		buttonRedB.whileHeld(new WinchUp());		   				//pulls up the robot
 		buttonYellowY.whileHeld(new WinchDown());	   				//lowers the robot
 		buttonRB.whenPressed(new ShiftUp());						//triggers boost
-		buttonRB.whenReleased(new ShiftDown());						//ends boost
+		buttonRB.whenReleased(new ShiftNormal());						//ends boost
 		
 		//Dpad
 		//left 90 degrees left spin
@@ -91,12 +91,18 @@ public class OI {
 		buttonRT2 = new JoystickButton(controllerOp, 7);			//RT
 		buttonLT2 = new JoystickButton(controllerOp, 8);			//LT
 		
+		/*
 		buttonGreenA2.whenPressed(new ShooterShoot());				// includes speeding up shooter and one full arm rotation
 		buttonRedB2.whileActive(new ShooterInverseSpin());			// spin shooter inward to free of jams
-		//buttonBlueX2.whenReleased(new arm full forward)
-		//buttonYellowY2.whenReleased(new arm full backwards)
-		buttonLT2.whileHeld(new ArmForward());						//Manual arm control forward
+		
+		buttonLT2.whileHeld(new ArmKick());						//Manual arm control forward
 		buttonRT2.whileHeld(new ArmBack());							//Manual Arm control back		
+		*/
+		
+		buttonGreenA.whileHeld(new ArmKick());
+		buttonRedB.whileHeld(new ArmBack());
+		buttonYellowY.whileHeld(new ShiftUp());
+		buttonBlueX.whileHeld(new ShiftNormal());
 	}
 	
 	//talons on wheels and limit switches

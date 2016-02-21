@@ -20,16 +20,7 @@ public class autoMLG extends CommandGroup {
         // e.g. addParallel(new Command1());
         //      addSequential(new Command2());
         // Command1 and Command2 will run in parallel.
-    	requires(Robot.arm);
-    	requires(Robot.driveTrain);
-    	requires(Robot.shoot);
-    	//requires(Robot.lift);
     	
-    	addSequential(new ArmKick());
-    	addSequential(new DriveForward());
-    	addSequential(new ShooterShoot());
-    	//addSequential(new LiftExtend());
-    	//addSequential(new LiftRetract());
     	
         // A command group will require all of the subsystems that each member
         // would require.

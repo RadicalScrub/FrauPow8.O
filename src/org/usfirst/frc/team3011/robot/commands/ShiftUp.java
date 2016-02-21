@@ -21,7 +21,7 @@ public class ShiftUp extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.shifter.shiftUp();
+    	Robot.shifter.setPosition(1, 0);
     }
 
     // Make this return true when this Command no longer needs to run execute()

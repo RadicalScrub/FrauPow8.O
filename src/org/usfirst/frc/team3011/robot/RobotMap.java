@@ -24,7 +24,6 @@ public class RobotMap {
 	 * Assume all motors are Victors. 
 	 * Divided PWM channels by subsystems.
 	 */
-	public static int pArmMotorZero = 0; //Arm - TestBuild
 	
 	public static int winchMotorOne = 1;  //winchMotor
 	
@@ -46,6 +45,6 @@ public class RobotMap {
 	public static int rightDriveThree = 3;	//Right DriveTrain Motor 1
 	public static int rightDriveFour = 4;	//Right DriveTrain Motor 2
 	
-	//public static int cArmFive = 5;
+	public static int cArmFive = 5;
 	
 }

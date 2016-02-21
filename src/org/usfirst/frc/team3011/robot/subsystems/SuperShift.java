@@ -20,31 +20,32 @@ public class SuperShift extends Subsystem {
 		leftServo = new Servo(RobotMap.leftServoEight);
 		rightServo = new Servo(RobotMap.rightServoNine);
 		
+		
 		LiveWindow.addActuator("SuperShift", "Left Servo", leftServo);
 		LiveWindow.addActuator("SuperShift", "Right Servo", rightServo);
 	}
+	
+	//0 - Fast
+	//1 - Normal
+	
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
+    	
+    	leftServo.setPosition(0);
+    	rightServo.setPosition(1);
     }
     
     /**
      * Speeds up DriveTrain.
      */
-    public void shiftUp() {
-    	leftServo.set(1);
-    	rightServo.set(1);
-    }
     
-    /**
-     * DriveTrain to default speed.
-     */
-    public void shiftDown() {
-    	leftServo.set(0);
-    	rightServo.set(0);
+    public void setPosition(double leftPos, double rightPos) {
+    	leftServo.set(leftPos);
+    	rightServo.set(rightPos);
     }
 }
 
