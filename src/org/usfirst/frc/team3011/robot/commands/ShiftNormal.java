@@ -12,7 +12,7 @@ public class ShiftNormal extends Command {
     public ShiftNormal() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.driveTrain);
+    	requires(Robot.shifter);
     }
 
     // Called just before this Command runs the first time

@@ -7,13 +7,12 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class ShooterInverseSpin extends Command {
-
-
-    public ShooterInverseSpin() {
+public class ArmKickInside extends Command {
+	
+    public ArmKickInside() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.shoot);
+    	requires(Robot.arm);
     }
 
     // Called just before this Command runs the first time
@@ -22,8 +21,7 @@ public class ShooterInverseSpin extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.shoot.setShoot(-1);;
-    	
+    	Robot.arm.setSpeed(1);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -33,7 +31,7 @@ public class ShooterInverseSpin extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.shoot.stop();
+    	Robot.arm.stop();
     }
 
     // Called when another command which requires one or more of the same

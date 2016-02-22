@@ -17,8 +17,8 @@ public class SuperShift extends Subsystem {
 	public SuperShift() {
 		super();
 		
-		leftServo = new Servo(RobotMap.leftServoEight);
-		rightServo = new Servo(RobotMap.rightServoNine);
+		leftServo = new Servo(RobotMap.servo_LeftDrive);
+		rightServo = new Servo(RobotMap.servo_RightDrive);
 		
 		
 		LiveWindow.addActuator("SuperShift", "Left Servo", leftServo);
@@ -35,6 +35,7 @@ public class SuperShift extends Subsystem {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     	
+    	//Not sure about this.
     	leftServo.setPosition(0);
     	rightServo.setPosition(1);
     }

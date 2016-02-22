@@ -31,12 +31,17 @@ public class ShooterShoot extends CommandGroup {
     	requires(Robot.shoot);
     	requires(Robot.arm);
     	
-    	addSequential(new ArmBack());
-    	addParallel(new ShooterShoot(), 5);
+    	addSequential(new ArmKickInside());
+    	addParallel(new ShooterSpinDown(), .5);
     	
-    	addSequential(new ArmKick());
-    	addParallel(new ShooterShoot(), 1);
+    	addSequential(new StopShoot());
+    	addParallel(new StopArm(), .5);
     	
+    	addSequential(new ShooterSpinUp(), 1.5);
+    	
+    	addSequential(new ArmHome(), 1);
+    	
+    	addSequential(new StopShoot());
     	
     }
 }

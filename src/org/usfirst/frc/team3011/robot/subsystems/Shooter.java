@@ -23,6 +23,9 @@ public class Shooter extends Subsystem {
 		shootLeft = new Victor(RobotMap.shootLeftThree);
 		shootRight = new Victor(RobotMap.shootRightFour);
 		
+		//Negative speed value makes the leftShoot go up. Thus, I have inverted the motor so it is consistent with the right motor.
+		shootLeft.setInverted(true);
+		
 		shootLeft.setSafetyEnabled(true);
 		shootRight.setSafetyEnabled(true);
 		
@@ -33,6 +36,9 @@ public class Shooter extends Subsystem {
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
+    	
+    	shootLeft.set(0);
+    	shootRight.set(0);
     }
     
     public void setShoot(double speed) {
@@ -47,10 +53,6 @@ public class Shooter extends Subsystem {
     	shootLeft.disable();
     	shootRight.disable();
     }
-    
-    //static DigitalInput limitSwitch = newDigitalInput(1);
-	//public static Boolean get(){
-	//	return limitSwitch.get();
 	
 
 }

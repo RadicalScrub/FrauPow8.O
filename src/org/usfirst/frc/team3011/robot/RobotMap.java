@@ -20,31 +20,41 @@ public class RobotMap {
 	
 	//DO NOT REUSE PORTS. DON'T WASTE 78,162,863,798,123 HOURS DEBUGGING. IF YOU DO, UR DUMB.
 	
-	/* PWM Channels
-	 * Assume all motors are Victors. 
-	 * Divided PWM channels by subsystems.
-	 */
+	//CAN Talon's
+	public static final int
+	leftDriveOne = 1,			//Left DriveTrain Motor 1			
+	leftDriveTwo = 2,			//Left DriveTrain Motor 2
+	rightDriveThree = 3,		//Right DriveTrain Motor 1
+	rightDriveFour = 4,			//Right DriveTrain Motor 2
+	CANArmMotor = 5; 			//Arm
+
+	//PWM - Servos
+	public static final int
+	servo_LeftDrive = 3,
+	servo_RightDrive = 4;
+
+	//PWM - Victors
+	public static final int
+	shootLeftThree = 2,			
+	winch = 1,
+	shootRightFour = 0;
+
+	//PWM - Relay/Lift
+	public static final int
+	liftMotor = 5;
+
+	//PWM - Microswitch for Arm
+	public static final int
+	microSwitch = 9;
+
+	//PWM - Encoder
+	public static final int 
+	encoderA1 = 0,
+	encoderA2 = 1;
 	
-	public static int winchMotorOne = 1;  //winchMotor
-	
-	public static int liftMotorTwo = 2;	//liftMotor?
-	
-	public static int shootLeftThree = 3; //Victor shootRight
-	public static int shootRightFour = 4; //Victor shootLeft
-	
-	public static int leftServoEight = 8; //SuperShift leftServo
-	public static int rightServoNine = 9; //SuperShift rightServo
-	
-	/* CAN Talons
-	 * Switched to CAN system instead of PWM in 2016. We Daisy Chain now boyz!
-	 * Divided CAN iD's by subsystems.
-	 */
-	
-	public static int leftDriveOne = 1;	//Left DriveTrain Motor 1
-	public static int leftDriveTwo = 2;	//Left DriveTrain Motor 2
-	public static int rightDriveThree = 3;	//Right DriveTrain Motor 1
-	public static int rightDriveFour = 4;	//Right DriveTrain Motor 2
-	
-	public static int cArmFive = 5;
+	//RoboRealm Target Location
+	public static final int
+	roboRealm_x = 204,
+	roboRealm_y = 250;
 	
 }

@@ -1,5 +1,6 @@
 package org.usfirst.frc.team3011.robot.subsystems;
 
+import org.usfirst.frc.team3011.robot.Robot;
 import org.usfirst.frc.team3011.robot.RobotMap;
 import org.usfirst.frc.team3011.robot.commands.TankDriveTrain;
 
@@ -8,6 +9,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * Not so sure about RobotDrive. Only worked with two motors instead of four. Test this out.
@@ -58,11 +60,11 @@ public class DriveTrain extends Subsystem {
      * Sets speed for DriveTrain.
      * @param speed - Between -1 & 1.
      */
-    public void setSpeed(double speed) {
-    	leftMotor1.set(speed);
-    	leftMotor2.set(speed);
-    	rightMotor1.set(speed);
-    	rightMotor2.set(speed);
+    public void setSpeed(double leftSpeed, double rightSpeed) {
+    	leftMotor1.set(leftSpeed);
+    	leftMotor2.set(leftSpeed);
+    	rightMotor1.set(rightSpeed);
+    	rightMotor2.set(rightSpeed);
     }
     
     public void stop() {
@@ -72,17 +74,179 @@ public class DriveTrain extends Subsystem {
     	rightMotor2.disable();
     }
     
+    /**
+     * Very sketchy code. Play around with JoyThreshold and Gyro_Kp.
+     * @param joy - Operator Controller in OI.
+     */
     public void betterDrive(Joystick joy) {
-    	double leftAxis = -(joy.getRawAxis(0));	//Left Y-Axis
-    	double rightAxis = joy.getRawAxis(4);	//Right X-Axis
+    	double leftYAxis = -(joy.getRawAxis(0));	//Left Y-Axis (Flipped double since it sends a negative value when you go up on the joystick)
+    	double rightXAxis = joy.getRawAxis(4);	//Right X-Axis
     	
-    	if(rightAxis == 0) {
-    		leftMotor1.set(leftAxis);
-    		leftMotor2.set(leftAxis);
-    		rightMotor1.set(leftAxis);
-    		rightMotor2.set(leftAxis);
+    	double leftSpeed = 0;
+    	double rightSpeed = 0;
+    	
+    	double currentAngle = Robot.navX.getAngle();
+    	double straight = 0;
+    	double back = 180;
+    	
+    	if(Math.abs(leftYAxis) < Robot.joyMinThres)
+    		leftYAxis = 0;
+    	if(Math.abs(rightXAxis) < Robot.joyMinThres)
+			rightXAxis = 0;
+    	
+    	//If rightThumb X-Axis isn't touched. Will go in a straight line forward or back.
+    	if(Robot.orientation == 0) {
+    		
+    		//Rotating Robot
+    		if(leftYAxis == 0 && rightXAxis != 0) {
+    			
+    			//Linear Jump - Small input = Larger input. Also it'll jump to 100% when it hits a certain value. Example: 10% = 24.2%
+    			
+    			//Rotate Right
+    			if(rightXAxis > 0) {
+    				
+    				if(rightXAxis <= .95) 
+    					rightXAxis = (0.421053 * rightXAxis) + .2;
+    				else
+    					rightXAxis = 1;
+    				
+    			}
+    			//Rotate Left
+    			else {
+    				
+    				if(rightXAxis >= -.95) 
+    					rightXAxis = (0.421053 * rightXAxis) - .2;
+    				else
+    					rightXAxis = -1;
+    			}
+    			
+    			leftSpeed = rightXAxis;
+    			rightSpeed = -rightXAxis;
+    		}
+    		
+    		//Going straight backward or forward
+    		else if(leftYAxis != 0 && rightXAxis == 0) {
+    			
+    			//Is going Right
+    			if(currentAngle > back) {
+    				
+    				double speed = leftYAxis;
+    				//Pull to Left
+    				speed = 1-(((back-currentAngle)/back) * Robot.gyro_Kp);
+    				
+    				rightSpeed = speed;
+    			}
+    			
+    			//Is going Left
+    			else if(currentAngle < back) {
+    				double speed = leftYAxis;
+    				//Pull to Right
+    				speed = 1+(((currentAngle - back)/back)* Robot.gyro_Kp);
+    				
+    				leftSpeed = speed;
+    			}
+    			
+    		}
+    		
+    		//Strafing/Turning while moving.
+    		else if(leftYAxis != 0 && rightXAxis != 0) {
+    				double speed;
+		        	//Turning is reduced in high speed. 
+		        	speed = rightXAxis*0.80;
+		        	
+		        	//Turn right
+		        	if (speed > 0) {
+		        		//Double check this. Might cause serious jam!
+		        		speed = leftYAxis*(1-speed);
+		        		rightSpeed = speed;
+		        		
+		        	//Turn left
+		        	} else if (speed < 0) {
+		        		speed = leftYAxis*(1+speed);
+		        		leftSpeed = speed;
+		        	} 
+	        	}
+    		}
+    		
+    	//Flipped orientation of robot.
+    	else if(Robot.orientation == 1) {
+    		
+    		//Rotating Robot
+    		if(leftYAxis == 0 && rightXAxis != 0) {
+    			
+    			//Linear Jump - Small input = Larger input. Also it'll jump to 100% when it hits a certain value. Example: 10% = 24.2%
+    			
+    			//Rotate Right
+    			if(rightXAxis > 0) {
+    				
+    				if(rightXAxis <= .95) 
+    					rightXAxis = (0.421053 * rightXAxis) + .2;
+    				else
+    					rightXAxis = 1;
+    				
+    			}
+    			//Rotate Left
+    			else {
+    				
+    				if(rightXAxis >= -.95) 
+    					rightXAxis = (0.421053 * rightXAxis) - .2;
+    				else
+    					rightXAxis = -1;
+    			}
+    			
+    			leftSpeed = -rightXAxis;
+    			rightSpeed = rightXAxis;
+    		}
+    		
+    		//Going straight backward or forward
+    		else if(leftYAxis != 0 && rightXAxis == 0) {
+    			
+    			//Is going Right
+    			if(currentAngle > straight) {
+    				
+    				double speed = leftYAxis;
+    				//Pull to Left
+    				
+    				speed = 1+((currentAngle/360) * Robot.gyro_Kp);
+    				rightSpeed = speed;
+    			}
+    			
+    			//Is going Left
+    			else if(currentAngle < straight) {
+    				double speed = leftYAxis;
+    				//Pull to Right
+    				
+    				speed = 1-((currentAngle/360) * Robot.gyro_Kp);
+    				leftSpeed = speed;
+    			}
+    			
+    		}
+    		
+    		//Strafing/Turning while moving.
+    		else if(leftYAxis != 0 && rightXAxis != 0) {
+    				double speed;
+		        	//Turning is reduced in high speed. 
+		        	speed = rightXAxis*0.80;
+		        	
+		        	//Turn right
+		        	if (speed > 0) {
+		        		//Double check this. Might cause serious jam!
+		        		speed = leftYAxis*(1+speed);
+		        		rightSpeed = speed;
+		        		
+		        	//Turn left
+		        	} else if (speed < 0) {
+		        		
+		        		speed = leftYAxis*(1-speed);
+		        		leftSpeed = speed;
+		        	} 
+	        	}
     	}
+    	else 
+    		SmartDashboard.putNumber("Robot Orientation Error! ", Robot.orientation);
     	
+    	
+    	Robot.driveTrain.setSpeed(leftSpeed, rightSpeed);
     }
     
     /**

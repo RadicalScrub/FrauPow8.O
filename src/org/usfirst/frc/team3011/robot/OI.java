@@ -1,10 +1,11 @@
 package org.usfirst.frc.team3011.robot;
 
 
-import org.usfirst.frc.team3011.robot.commands.ArmBack;
-import org.usfirst.frc.team3011.robot.commands.ArmKick;
+import org.usfirst.frc.team3011.robot.commands.ArmPullOut;
+import org.usfirst.frc.team3011.robot.commands.ArmKickInside;
+import org.usfirst.frc.team3011.robot.commands.FlipDrive;
 import org.usfirst.frc.team3011.robot.commands.LiftExtend;
-import org.usfirst.frc.team3011.robot.commands.ShooterInverseSpin;
+import org.usfirst.frc.team3011.robot.commands.ShooterSpinUp;
 import org.usfirst.frc.team3011.robot.commands.LiftRetract;
 import org.usfirst.frc.team3011.robot.commands.ShiftNormal;
 import org.usfirst.frc.team3011.robot.commands.ShiftUp;
@@ -72,12 +73,9 @@ public class OI {
 		buttonMiddleLogi = new JoystickButton(controllerDrive, 9);
 		*/
 		
-		buttonGreenA.whileHeld(new LiftRetract());     				//retracts the hook lift
-		buttonBlueX.whileHeld(new LiftExtend());	   				//extends the hook lift
-		buttonRedB.whileHeld(new WinchUp());		   				//pulls up the robot
-		buttonYellowY.whileHeld(new WinchDown());	   				//lowers the robot
-		buttonRB.whenPressed(new ShiftUp());						//triggers boost
-		buttonRB.whenReleased(new ShiftNormal());					//ends boost
+		buttonLB.whileHeld(new ArmKickInside());
+		buttonRB.whileHeld(new ArmPullOut());
+		buttonBlueX.whenPressed(new FlipDrive());
 		
 		//Dpad
 		//left 90 degrees left spin
@@ -103,17 +101,12 @@ public class OI {
 		buttonMiddleLogi = new JoystickButton(controllerDrive, 9);
 			
 		*/
-		
-		buttonGreenA.whileHeld(new ArmKick());
-		buttonRedB.whileHeld(new ArmBack());
-		buttonYellowY.whileHeld(new ShiftUp());
-		buttonBlueX.whileHeld(new ShiftNormal());
 	}
 	
 	//talons on wheels and limit switches
-	//	lifts and drive train
+	//lifts and drive train
 	//victors on everything else
-		//shooter
+	//shooter
 	
 	
     //// CREATING BUTTONS

@@ -1,7 +1,10 @@
 
 package org.usfirst.frc.team3011.robot;
 
+import edu.wpi.first.wpilibj.CameraServer;
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -12,6 +15,8 @@ import org.usfirst.frc.team3011.robot.subsystems.Lift;
 import org.usfirst.frc.team3011.robot.subsystems.Shooter;
 import org.usfirst.frc.team3011.robot.subsystems.SuperShift;
 import org.usfirst.frc.team3011.robot.subsystems.Winch;
+
+import com.kauailabs.navx.frc.AHRS;
 
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -33,10 +38,21 @@ public class Robot extends IterativeRobot {
 	public static Winch winch;
 	public static SuperShift shifter;
 	
-	public static boolean firstIter;
-	//public static IMU imu;
-	//public static SerialPort serialPort;
+	/**
+	 * This is the gyro's proportional constant or loop gain, decreasing this number 
+    will cause the robot to correct more quickly. The problem comes in when the number 
+    is to low, the robot will oscillate. 0 to 1 are the possible values for this.
+	 */
+	public static double gyro_Kp;
+	public static AHRS navX;
 	
+	public static Encoder driveEncoder;
+	
+	//this is the minimum threshold for the joysticks
+    public static double joyMinThres;
+    
+    public static int orientation;
+    
     Command autonomousMLG;
     SendableChooser chooser;
     
@@ -56,6 +72,19 @@ public class Robot extends IterativeRobot {
         driveTrain = new DriveTrain();
         shifter = new SuperShift();
         
+        navX = new AHRS(SPI.Port.kMXP);
+        navX.reset();
+        
+        //Play with this value. 
+        gyro_Kp = 1;
+        
+        driveEncoder = new Encoder(RobotMap.encoderA1,RobotMap.encoderA2);
+        Robot.driveEncoder.reset();
+        
+        joyMinThres = 0.1;
+        
+        orientation = 0;
+        
         SmartDashboard.putData(arm);
         SmartDashboard.putData(lift);
         SmartDashboard.putData(shoot);
@@ -63,28 +92,11 @@ public class Robot extends IterativeRobot {
         SmartDashboard.putData(driveTrain);
         SmartDashboard.putData(shifter);
         
+        CameraServer server = CameraServer.getInstance();
+        server.setQuality(25);
+        server.startAutomaticCapture("cam0");
+        
         autonomousMLG = new autoMLG();
-        
-        /*
-        serialPort = new SerialPort(57600, SerialPort.Port.kOnboard);
-        byte updateRateHZ = 50;
-        imu = new IMU(serialPort, updateRateHZ);
-        LiveWindow.addSensor("IMU", "Gyro", imu);
-        firstIter = true;
-        
-        SmartDashboard.putBoolean("IMU_Calibrating", true); 				//Calibration period
-    	while (imu.isCalibrating()) {}										//Goes through on startup
-    	SmartDashboard.putBoolean("IMU_Calibrating", imu.isCalibrating());	//Should be false here
-        boolean isCalibrating = imu.isCalibrating();
-        
-        if (firstIter && !isCalibrating) {
-            Timer.delay( 0.3 );  
-            imu.zeroYaw();
-            firstIter = false;
-        }
-        
-        SmartDashboard.putNumber("IMU_Yaw",imu.getYaw());	//orientation data from the NAV6
-        */
         
         oi = new OI();
     }
@@ -144,6 +156,9 @@ public class Robot extends IterativeRobot {
         // continue until interrupted by another command, remove
         // this line or comment it out.
         if (autonomousMLG != null) autonomousMLG.cancel();
+        
+        Robot.driveEncoder.reset();
+        SmartDashboard.putNumber("encoder: ", Robot.driveEncoder.get());
         
     }
 

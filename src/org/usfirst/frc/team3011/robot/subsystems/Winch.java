@@ -19,7 +19,7 @@ public class Winch extends Subsystem {
 	public Winch() {
 		super();
 		
-		winchMotor = new Victor(RobotMap.winchMotorOne);
+		winchMotor = new Victor(RobotMap.winch);
 		
 		winchMotor.setSafetyEnabled(true);
 		

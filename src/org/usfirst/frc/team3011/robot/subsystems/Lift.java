@@ -21,7 +21,7 @@ public class Lift extends Subsystem {
 	public Lift() {
 		super();
 		
-		liftMotor = new Relay(RobotMap.liftMotorTwo);
+		liftMotor = new Relay(RobotMap.liftMotor);
 		liftMotor.setSafetyEnabled(true);
 		LiveWindow.addActuator("Lift", "Motor", liftMotor);
 	}
